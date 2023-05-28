@@ -15,8 +15,8 @@ package main.model;
 			this.endereco = endereço;
 		}
 		
-		public Cliente(String nome, Integer CPF, String telefone, String sexo, String email, String endereco) {
-			super(nome, CPF, telefone, sexo, email);
+		public Cliente(String nome, Integer CPF, String sexo, String endereco) {
+			super(nome, CPF, sexo);
 			this.endereco = endereco;
 		}
 

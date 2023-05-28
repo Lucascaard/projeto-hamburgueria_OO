@@ -4,20 +4,16 @@ public class Pessoa {
 	
 	private String nome;
 	private Integer CPF;
-	private String telefone;
 	private String sexo;
-	private String email;
 
 	public Pessoa() {
 	
 	}
 	
-	public Pessoa(String nome, Integer CPF, String telefone, String sexo, String email) {
+	public Pessoa(String nome, Integer CPF,String sexo) {
 		this.nome = nome;
 		this.CPF = CPF;
-		this.telefone = telefone;
 		this.sexo = sexo;
-		this.email = email;
 	}
 
 	//GETTERS e SETTERS
@@ -40,15 +36,6 @@ public class Pessoa {
 		return CPF;
 	}
 	
-	//telefone
-	public void setTelefone( String telefoneExterno ) {
-		this.telefone = telefoneExterno;
-	}
-
-	public String getTelefone() {
-		return telefone;
-	}
-	
 	//sexo
 	public void setSexo( String sexoExterno ) {
 		this.sexo = sexoExterno;
@@ -58,18 +45,9 @@ public class Pessoa {
 		return sexo;
 	}
 	
-	//email
-	public void setEmail( String emailExterno ) {
-		this.email = emailExterno;
-	}
-	
-	public String getEmail() {
-		return email;
-	}
-	
 	//resumo
 	@Override
 	public String toString() {
-		return "Nome: "+ nome + "\n CPF: " + CPF + "\n Telefone: " + telefone + "\n Sexo: " + sexo + "\n Email: " + email;
+		return "Nome: "+ nome + "\n CPF: " + CPF + "\n Sexo: " + sexo;
 	}
 }
