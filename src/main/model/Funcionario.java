@@ -8,8 +8,8 @@ public class Funcionario extends Pessoa {
 		private LocalTime horarioEntrada;
 		private LocalTime horarioSaida;
 		
-		public Funcionario(String nome, Integer CPF, String telefone, String sexo, String email, LocalDate dataAdmissao, LocalTime horarioEntrada, LocalTime horarioSaida) {
-			super(nome, CPF, telefone, sexo, email);
+		public Funcionario(String nome, Integer CPF, String sexo, LocalDate dataAdmissao, LocalTime horarioEntrada, LocalTime horarioSaida) {
+			super(nome, CPF, sexo);
 			this.dataAdmissao = dataAdmissao;
 			this.horarioEntrada = horarioEntrada;
 			this.horarioSaida = horarioSaida;

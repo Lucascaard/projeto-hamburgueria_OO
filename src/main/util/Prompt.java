@@ -11,36 +11,36 @@ import java.time.format.DateTimeParseException;
 public class Prompt {
 	
 	// Método para imprimir uma mensagem no console
-		public static void imprimir(String mensagem) {
-			System.out.println(mensagem); // imprime a mensagem no console
+		public static void print(String message) {
+			System.out.println(message); // imprime a mensagem no console
 			System.out.flush(); // limpa o buffer de saída
 		}
 
 		// Sobrecarga do método imprimir para receber um objeto e imprimir sua representação String
-		public static void imprimir(Object object) {
+		public static void print(Object object) {
 			System.out.println(object); // imprime a representação String do objeto no console
 			System.out.flush(); // limpa o buffer de saída
 		}
 
 		// Método para imprimir um separador no console
-		public static void separador() {
-			imprimir("---------------------------------------------------"); // imprime o separador no console
+		public static void separator() {
+			print("---------------------------------------------------"); // imprime o separador no console
 		}
 
 		// Método para imprimir uma linha em branco no console
-		public static void linhaEmBranco() {
+		public static void blankLine() {
 			System.out.println(); // imprime uma linha em branco no console
 			System.out.flush(); // limpa o buffer de saída
 		}
 
 		// Método para ler uma linha de texto do console, exibindo uma mensagem opcional
-		public static String lerLinha(String mensagem) {
-			imprimir(mensagem); // imprime a mensagem no console
-			return lerLinha(); // chama o método lerLinha() sem mensagem para ler a linha de texto do console
+		public static String lineReader(String message) {
+			print(message); // imprime a mensagem no console
+			return lineReader(); // chama o método lerLinha() sem mensagem para ler a linha de texto do console
 		}
 
 		// Método para ler uma linha de texto do console
-		public static String lerLinha() {
+		public static String lineReader() {
 			while (true) { // laço infinito
 				try {
 					InputStreamReader isr = new InputStreamReader(System.in); // cria um InputStreamReader para ler do console
@@ -53,20 +53,20 @@ public class Prompt {
 		}
 
 		// Método para ler um número inteiro do console, exibindo uma mensagem opcional
-		public static int lerInteiro(String mensagem) {
-			imprimir(mensagem); // imprime a mensagem no console
-			return lerInteiro(); // chama o método lerInteiro() sem mensagem para ler o número inteiro do console
+		public static int intReader(String message) {
+			print(message); // imprime a mensagem no console
+			return intReader(); // chama o método lerInteiro() sem mensagem para ler o número inteiro do console
 		}
 
 		// Método para ler um número inteiro do console
-		public static int lerInteiro() {
+		public static int intReader() {
 			while (true) { // laço infinito
 				try {
-					String linha = lerLinha(); // lê uma linha de texto do console
-					if (linha.isEmpty()) { // se a linha for vazia
+					String line = lineReader(); // lê uma linha de texto do console
+					if (line.isEmpty()) { // se a linha for vazia
 						return 0; // retorna zero
 					}
-					return Integer.parseInt(linha); // converte a linha em um número inteiro e retorna
+					return Integer.parseInt(line); // converte a linha em um número inteiro e retorna
 				} catch (NumberFormatException tExcept) {
 					System.out.println("Inteiro inválido, digite novamente..."); // imprime mensagem de erro no console
 				}
@@ -76,14 +76,14 @@ public class Prompt {
 	 * Lê um número decimal digitado pelo usuário a partir da entrada padrão.
 	 * Se o usuário digitar um valor inválido, exibe uma mensagem de erro e solicita
 	 * que o usuário tente novamente.
-	 * @param mensagem a mensagem a ser exibida antes da entrada do usuário
+	 * @param message a mensagem a ser exibida antes da entrada do usuário
 	 * @return o número decimal digitado pelo usuário
 	 */
-	public static double lerDecimal(String mensagem) {
+	public static double decimalReader(String message) {
 		// exibe a mensagem fornecida antes da entrada do usuário
-		imprimir(mensagem);
+		print(message);
 		// lê a entrada do usuário e retorna o número decimal correspondente
-		return lerDecimal();
+		return decimalReader();
 	}
 
 	/**
@@ -92,48 +92,48 @@ public class Prompt {
 	 * que o usuário tente novamente.
 	 * @return o número decimal digitado pelo usuário
 	 */
-	public static double lerDecimal() {
+	public static double decimalReader() {
 		while (true) {
 			try {
 				// lê uma linha de texto da entrada padrão
-				String linha = lerLinha();
+				String line = lineReader();
 				// se a linha estiver vazia, retorna 0
-				if (linha.isEmpty()) {
+				if (line.isEmpty()) {
 					return 0;
 				}
 				// converte a linha em um número decimal e retorna o valor correspondente
-				return Double.parseDouble(linha);
+				return Double.parseDouble(line);
 			} catch (NumberFormatException e) {
 				// exibe uma mensagem de erro e solicita que o usuário tente novamente
-				imprimir("Decimal inválido, digite novamente...");
+				print("Decimal inválido, digite novamente...");
 			}
 		}
 	}
 
 	//ler uma data digitada pelo usuário
-	public static LocalDate lerData(String mensagem) {
-		LocalDate data = null;
-		while (data == null) {
+	public static LocalDate dateReader(String message) {
+		LocalDate date = null;
+		while (date == null) {
 			try {
-				Prompt.imprimir(mensagem);
-				String input = lerLinha();
-				data = LocalDate.parse(input);
+				Prompt.print(message);
+				String input = lineReader();
+				date = LocalDate.parse(input);
 			} catch (DateTimeParseException e) {
 				System.out.println("Data inválida. Digite novamente.");
 			}
 		}
-		return data;
+		return date;
 	}
 
 	//ler a hora digitada pelo usuário 
-	public static LocalTime lerHora(String mensagem) {
-		System.out.println(mensagem);
+	public static LocalTime hourReader(String message) {
+		System.out.println(message);
 		while (true) {
 			try {
-				String horaStr = lerLinha();
+				String hourStr = lineReader();
 				// Formato de hora esperado
-				DateTimeFormatter formatador = DateTimeFormatter.ofPattern("HH:mm:ss");
-				return LocalTime.parse(horaStr, formatador);
+				DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss");
+				return LocalTime.parse(hourStr, formatter);
 			} catch (Exception e) {
 				System.out.println("Hora inválida, digite novamente...");
 			}
@@ -144,11 +144,11 @@ public class Prompt {
 	 * Exibe uma mensagem pedindo que o usuário pressione a tecla ENTER para continuar.
 	 * Aguarda até que o usuário pressione a tecla ENTER antes de retornar.
 	 */
-	public static void pressionarEnter() {
+	public static void pressEnter() {
 		// exibe a mensagem pedindo que o usuário pressione ENTER
 		System.out.print("Pressione ENTER para continuar...");
 		// aguarda até que o usuário pressione ENTER
-		lerLinha();
+		lineReader();
 	}
 
 }
