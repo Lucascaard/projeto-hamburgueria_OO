@@ -3,8 +3,8 @@ package main.controller;
 import main.model.Cliente;
 import java.util.List;
 
-public class CustomerRegistration {
+public class ClientController {
     
-    private static CustomerRegistration instance;
+    private static ClientController instance;
     private List<Cliente> clientes; 
 }

@@ -28,7 +28,7 @@ public abstract class View {
             for (ItemMenu item : itensMenu) {
                 item.show();
             }
-            Integer op = Prompt.intReader();
+            Integer op = Prompt.intReader() -1;
             ItemMenu chosenItem = itensMenu.get(op);
             chosenItem.exe();
 
