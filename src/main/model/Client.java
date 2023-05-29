@@ -4,18 +4,18 @@ package main.model;
  * @author Lucas Cardoso
  * @version 1.0 Abr 2023
  */
-	public class Cliente extends Pessoa {
+	public class Client extends Pessoa {
 		
 		private String endereco;
 		
-		public Cliente() {		
+		public Client() {		
 		}
 		
-		public Cliente(String endereço) {		
+		public Client(String endereço) {		
 			this.endereco = endereço;
 		}
 		
-		public Cliente(String nome, Integer CPF, String sexo, String endereco) {
+		public Client(String nome, Integer CPF, String sexo, String endereco) {
 			super(nome, CPF, sexo);
 			this.endereco = endereco;
 		}

@@ -1,10 +1,10 @@
 package main.controller;
 
-import main.model.Cliente;
+import main.model.Client;
 import java.util.List;
 
 public class ClientController {
     
     private static ClientController instance;
-    private List<Cliente> clientes; 
+    private List<Client> clientes; 
 }
