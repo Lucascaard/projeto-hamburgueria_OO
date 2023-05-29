@@ -8,7 +8,7 @@ public class ClientView extends View {
     private static View instance;
 
     public ClientView() {
-        super(Message.MENU_CLIENTE, new MenuDeClientes());
+        super(Message.MENU_CLIENTE, new ClientMenu());
     }
 
     public ClientView(String titlte, Menu menu){

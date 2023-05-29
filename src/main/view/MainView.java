@@ -1,14 +1,14 @@
 package main.view;
 
 import main.util.*;
-import main.view.menu.MenuPrincipal;
+import main.view.menu.MainMenu;
 
 public class MainView extends View {
 
     private static View instance;
 
     public MainView(){
-        super(Message.MENU_PRINCIPAL, new MenuPrincipal());
+        super(Message.MENU_PRINCIPAL, new MainMenu());
     }
 
     public static synchronized View getInstance() {

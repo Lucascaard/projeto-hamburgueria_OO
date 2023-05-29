@@ -5,11 +5,11 @@ import java.util.List;
 import main.util.*;
 import main.view.*;
 
-public class MenuDeClientes extends Menu {
+public class ClientMenu extends Menu {
     
     private List<ItemMenu> itens = new ArrayList<>();
 
-    public MenuDeClientes(){
+    public ClientMenu(){
 
         adicionar(1, Message.CREATE, new Command(){
             public void exe(){

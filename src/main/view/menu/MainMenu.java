@@ -7,11 +7,11 @@ import main.view.*;
 
 import main.view.Command;
 
-public class MenuPrincipal extends Menu {
+public class MainMenu extends Menu {
 
     private List<ItemMenu> itens = new ArrayList<>();
 
-    public MenuPrincipal(){
+    public MainMenu(){
 
         adicionar(1, Message.MENU_CLIENTE, new Command(){
             public void exe(){
