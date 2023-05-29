@@ -51,6 +51,7 @@ public interface Message {
     final static String DELETAR_CLIENTE = "DELETAR CLIENTE";
     final static String EXCLUIDO_COM_SUCESSO = "CLIENTE EXCLUIDO COM SUCESSO";
     final static String JA_EXISTE = "JÁ EXISTE UM CLIENTE CADASTRADO COM ESSE CPF";
+    final static String CLIENTE_CADASTRADO = "CLIENTE CADASTRADO COM SUCESSO!";
 
 
     //FUNCIONARIO 

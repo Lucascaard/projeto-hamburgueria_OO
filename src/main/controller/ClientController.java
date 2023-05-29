@@ -38,4 +38,8 @@ public class ClientController {
 	public void delete(Long id) {
 		dao.delete(id);
 	}
+
+    public Client clientExists(Long CPF){
+        return dao.searchById(CPF);
+    }
 }

@@ -1,9 +1,12 @@
 package main.model;
 
+import javax.persistence.Entity;
+
 /*
  * @author Lucas Cardoso
  * @version 1.0 Abr 2023
  */
+	@Entity
 	public class Client extends Pessoa {
 		
 		private String endereco;
