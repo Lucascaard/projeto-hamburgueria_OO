@@ -6,37 +6,40 @@ import javax.persistence.Entity;
  * @author Lucas Cardoso
  * @version 1.0 Abr 2023
  */
-	@Entity
-	public class Client extends Pessoa {
-		
-		private String endereco;
-		
-		public Client() {		
-		}
-		
-		public Client(String endereço) {		
-			this.endereco = endereço;
-		}
-		
-		public Client(String nome, Integer CPF, String sexo, String endereco) {
-			super(nome, CPF, sexo);
-			this.endereco = endereco;
-		}
+@Entity
+public class Client extends Pessoa {
 
-		//Setters
-		
-		public void setEndereco(String endereco) {
-			this.endereco = endereco;
-		}
-		
-		//Getters
+	private String address;
 
-		public String getEndereco() {
-			return endereco;
-		}
-
-		@Override
-		public String toString() {
-			return super.toString();
-		}
+	public Client() {
 	}
+
+	public Client(String address) {
+		this.address = address;
+	}
+
+	public Client(String name, Integer CPF, String sex, String address) {
+		super(name, CPF, sex);
+		this.address = address;
+	}
+
+	// Setters
+
+	public void setAddress(String endereco) {
+		this.address = endereco;
+	}
+
+	// Getters
+
+	public String getAddress() {
+		return address;
+	}
+
+	@Override
+	public String toString() {
+		return "Cliente:" + getName() + "\n" +
+				"CPF: " + getCPF() + "\n" +
+				"Sexo: " + getSex() + "\n" +
+				"Endereço: " + getAddress();
+	}
+}

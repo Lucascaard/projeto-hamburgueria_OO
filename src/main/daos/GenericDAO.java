@@ -20,7 +20,7 @@ public abstract class GenericDAO<T> implements DAO<T> {
 		Type t = getClass().getGenericSuperclass();
 		ParameterizedType pt = (ParameterizedType) t;
 		persistedClass = (Class<T>) pt.getActualTypeArguments()[0];
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("Project-Hamburgueria");
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("Project_Hamburgueria");
 		entityManager = emf.createEntityManager();
 	}
 
@@ -83,10 +83,10 @@ public abstract class GenericDAO<T> implements DAO<T> {
 	}
 
 	public void delete(Long id) {
-		T entidade = searchById(id);
+		T entity = searchById(id);
 		EntityTransaction tx = entityManager.getTransaction();
 		tx.begin();
-		T mergedEntity = entityManager.merge(entidade);
+		T mergedEntity = entityManager.merge(entity);
 		entityManager.remove(mergedEntity);
 		entityManager.flush();
 		tx.commit();

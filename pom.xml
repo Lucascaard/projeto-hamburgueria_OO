@@ -4,11 +4,11 @@
   <artifactId>Project-Hamburgueria_OO</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   
-   <dependencies>
+    <dependencies>
     <dependency>
       <groupId>mysql</groupId>
       <artifactId>mysql-connector-java</artifactId>
-      <version>8.0.30</version>
+      <version>8.0.11</version>
     </dependency>
     <dependency>
 	  <groupId>com.h2database</groupId>
@@ -36,7 +36,6 @@
       <version>1.4.7</version>
     </dependency>
   </dependencies>
-  
   <build>
     <sourceDirectory>src</sourceDirectory>
     <resources>

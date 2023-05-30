@@ -3,6 +3,9 @@ package main.util;
 public interface Message {
 
 
+    //NOVAS MSG
+    final static String INFORM_ID = "INFORME O ID";
+
     //CRUD
     final static String CREATE = "CADASTRAR ";
     final static String READ = "LISTAR";
