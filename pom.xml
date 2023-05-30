@@ -4,6 +4,7 @@
   <artifactId>Project-Hamburgueria_OO</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   
+  <!-- NÃO ALTERAR AS VERSÕES DAS DEPENDENCIAS PARA NÃO CRASHAR, NÃO É NECESSARIO FAZER NENHUMA ALTERAÇÃO AQUI -->
     <dependencies>
     <dependency>
       <groupId>mysql</groupId>
