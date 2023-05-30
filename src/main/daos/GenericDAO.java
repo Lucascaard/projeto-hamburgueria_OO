@@ -12,6 +12,7 @@ import javax.persistence.*;
 
 public abstract class GenericDAO<T> implements DAO<T> {
 
+	//NÃO É NECESSARIO FAZER ALTERAÇÕES AQUI, O GenericDAO ATENDE TODAS AS CLASSES NO QUE DIZ RESPEITO A FUNÇÕES DO BANCO DE DADOS
 	private Class<T> persistedClass;
 	protected EntityManager entityManager;
 
