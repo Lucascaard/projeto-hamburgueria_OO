@@ -3,6 +3,9 @@ package main.util;
 public interface Message {
 
 
+    //NOVAS MSG
+    final static String INFORM_ID = "INFORME O ID";
+
     //CRUD
     final static String CREATE = "CADASTRAR ";
     final static String READ = "LISTAR";
@@ -51,6 +54,7 @@ public interface Message {
     final static String DELETAR_CLIENTE = "DELETAR CLIENTE";
     final static String EXCLUIDO_COM_SUCESSO = "CLIENTE EXCLUIDO COM SUCESSO";
     final static String JA_EXISTE = "JÁ EXISTE UM CLIENTE CADASTRADO COM ESSE CPF";
+    final static String CLIENTE_CADASTRADO = "CLIENTE CADASTRADO COM SUCESSO!";
 
 
     //FUNCIONARIO 

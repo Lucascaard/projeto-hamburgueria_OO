@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 public class Pedido {
 
 		private  LocalDateTime dataPedido;
-		private Cliente cliente;
+		private Client cliente;
 		private Funcionario atendente;
 		// private Estoque produto;
 		
@@ -21,11 +21,11 @@ public class Pedido {
 		}
 		
 		//cliente
-		public void setCliente( Cliente clienteExterno ) {
+		public void setCliente( Client clienteExterno ) {
 			this.cliente = clienteExterno;
 		}
 		
-		public Cliente getCliente() {
+		public Client getCliente() {
 			return cliente;
 		}
 		

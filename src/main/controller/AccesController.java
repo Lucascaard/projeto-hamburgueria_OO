@@ -10,5 +10,17 @@ public class AccesController {
         return loggedUser != null;
     }
 
-    // fazer método de autenticar depois de resolver banco de dados
+    
+
+    public static Boolean authentication(String log, String pass){
+
+    String login = "login";
+    String senha = "senha";
+    
+        if(login.equalsIgnoreCase(log) && senha.equalsIgnoreCase(pass)){
+            return true;
+        }
+        return false;
+    }
+    
 }

@@ -6,17 +6,17 @@ import main.view.Command;
 public class ItemMenu {
     
     private Integer index;
-	private String texto;
+	private String text;
 	private Command command;
 	
-	public ItemMenu(Integer index, String texto, Command comando) {
+	public ItemMenu(Integer index, String text, Command command) {
 		this.index = index;
-		this.texto = texto;
-		this.command = comando;
+		this.text = text;
+		this.command = command;
 	}
 	
 	public void show() {
-		String item = "[" + index + "] " + texto;
+		String item = "[" + index + "] " + text;
 		Prompt.print(item);
 	}
 
