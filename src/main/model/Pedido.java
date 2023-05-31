@@ -6,7 +6,7 @@ public class Pedido {
 
 		private  LocalDateTime dataPedido;
 		private Client cliente;
-		private Funcionario atendente;
+		private Worker atendente;
 		// private Estoque produto;
 		
 		//GETTERS e SETTERS
@@ -30,11 +30,11 @@ public class Pedido {
 		}
 		
 		//atendente
-		public void setAtendente( Funcionario atendenteExterno ) {
+		public void setAtendente( Worker atendenteExterno ) {
 			this.atendente = atendenteExterno;
 		}
 		
-		public Funcionario getAtendente() {
+		public Worker getAtendente() {
 			return atendente;
 		}
 		

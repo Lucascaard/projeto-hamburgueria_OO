@@ -2,13 +2,13 @@ package main.model;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
-public class Funcionario extends Pessoa {
+public class Worker extends Pessoa {
 	
 		private LocalDate dataAdmissao;
 		private LocalTime horarioEntrada;
 		private LocalTime horarioSaida;
 		
-		public Funcionario(String nome, Integer CPF, String sexo, LocalDate dataAdmissao, LocalTime horarioEntrada, LocalTime horarioSaida) {
+		public Worker(String nome, Integer CPF, String sexo, LocalDate dataAdmissao, LocalTime horarioEntrada, LocalTime horarioSaida) {
 			super(nome, CPF, sexo);
 			this.dataAdmissao = dataAdmissao;
 			this.horarioEntrada = horarioEntrada;
