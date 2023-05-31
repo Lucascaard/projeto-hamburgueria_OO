@@ -8,7 +8,7 @@
   "editor.inlayHints.enabled": "off",
   "window.zoomLevel": 1,
   "workbench.tree.indent": 30,
-  "editor.fontSize": 15,
+  "editor.fontSize": 14,
   "editor.fontFamily": "'Fira Code', 'Consolas', 'sans-serif'",
   "files.autoSave": "afterDelay",
   "editor.fontWeight": "550",
