@@ -31,7 +31,7 @@ public class WorkerMenu extends Menu {
                 Prompt.pressEnter();
                 WorkerView.getInstance().show();
             }
-        }
+        };
 
     adicionar(1, Message.CREATE, new Command(){
         public void exe(){
