@@ -6,6 +6,7 @@ import main.controller.StockController;
 import main.model.Stock;
 import main.util.*;
 import main.view.Command;
+import main.view.MainView;
 import main.view.StockView;
 
 public class StockMenu {
@@ -40,12 +41,10 @@ public class StockMenu {
                 Prompt.print(Message.MSG_CADASTRO_ESTOQUE);
                 Prompt.separator();
                 Prompt.blankLine();
-                Integer id = Prompt.intReader();
-                Integer qnty = Prompt.intReader();
-                Long longId = id.longValue();
-                Long longQnty = qnty.longValue();
+                Long id = (long) Prompt.intReader(Message.INFORME_ID);
+                Long qnty = (long) Prompt.intReader(Message.INFORME_QUANTIDADE);
 
-                if(StockController.getInstance().ProductExists(longId) != null){
+                if(StockController.getInstance().ProductExists(id) != null){
                     Prompt.separator();
                     Prompt.print(Message.JA_EXISTE);
                     Prompt.separator();
@@ -55,8 +54,75 @@ public class StockMenu {
 
                 if(id != null){
 
-                    Stock newStock = new Stock(id, null, qnty);
+                    // Stock newStock = new Stock(id, null, qnty);
+                    // control.create(newStock);
+                    // Atulizar código quando estiver pronto a parte de produto
                 }
+
+                Prompt.blankLine();
+                StockList.exe();
+            }
+        });
+
+        adicionar(2, Message.READ, StockList);
+
+        adicionar(3, Message.UPDATE, new Command(){
+            public void exe(){
+                Prompt.blankLine();
+                Prompt.print(Message.UPDATE_ESTOQUE);
+                Long id = (long) Prompt.intReader(Message.INFORME_ID);
+                
+
+                if(id > 0){
+                    Stock stockUpdate = control.search(id);
+
+                    if(stockUpdate != null){
+                        Long qnty = (long) Prompt.intReader(Message.INFORME_QUANTIDADE);
+
+                        if(qnty > -1){
+                            stockUpdate.setQnty(qnty);
+
+                            control.update(stockUpdate);
+                            Prompt.blankLine();
+                            Prompt.print(Message.ESTOQUE_ALTERADO);
+                        }
+                    } else {
+
+                        Prompt.blankLine();
+                        Prompt.print(Message.PRODUTO_EXISTENTE_ESTOQUE);
+                    }
+
+                Prompt.blankLine();
+                Prompt.pressEnter();
+
+                }
+
+                StockList.exe();
+            }
+        });
+
+        adicionar(4, Message.DELETE, new Command(){
+            public void exe(){
+                Prompt.blankLine();
+                Prompt.print(Message.EXCLUIR_ESTOQUE);
+                Long id = (long) Prompt.intReader(Message.INFORME_ID_EXCLUIR_ESTOQUE);
+
+                if(id > 0){
+
+                    control.delete(id);
+                    Prompt.blankLine();
+                    Prompt.print(Message.ESTOQUE_EXCLUIDO);
+                    Prompt.blankLine();
+                    Prompt.pressEnter();
+                }
+
+                StockList.exe();
+            }
+        });
+
+        adicionar(5, Message.VOLTAR, new Command(){
+            public void exe(){
+                new MainView().show();
             }
         });
         

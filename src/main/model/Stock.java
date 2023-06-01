@@ -4,13 +4,13 @@ public class Stock {
 
     private Integer id;
     private Produto product;
-    private Integer qnty;
+    private Long qnty;
 
     public Stock(){
 
     }
 
-    public Stock(Integer id, Produto product, Integer qnty) {
+    public Stock(Integer id, Produto product, Long qnty) {
         this.id = id;
         this.product = product;
         this.qnty = qnty;
@@ -28,10 +28,10 @@ public class Stock {
     public void setProduct(Produto produto) {
         this.product = produto;
     }
-    public Integer getQnty() {
+    public Long getQnty() {
         return qnty;
     }
-    public void setQnty(Integer qtde) {
+    public void setQnty(Long qtde) {
         this.qnty = qtde;
     }
     
