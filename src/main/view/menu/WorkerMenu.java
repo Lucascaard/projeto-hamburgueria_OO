@@ -28,10 +28,12 @@ public class WorkerMenu extends Menu {
                     Prompt.print(Message.NAO_HA_FUNCIONARIOS);
                 } else {
                     for (Worker customer : worker) {
+                        Prompt.separator();
                         Prompt.print(customer.toString());
                     }
                 }
                 Prompt.blankLine();
+                Prompt.separator();
                 Prompt.pressEnter();
                 WorkerView.getInstance().show();
             }
