@@ -20,6 +20,8 @@ public class WorkerMenu extends Menu {
             public void exe() {
                 Prompt.blankLine();
                 Prompt.print(Message.LISTA_DE_FUNCIONARIOS);
+                Prompt.blankLine();
+                Prompt.separator();
 
                 List<Worker> worker = control.getWorker();
                 if (worker.isEmpty()) {
@@ -45,7 +47,7 @@ public class WorkerMenu extends Menu {
                 String name = Prompt.lineReader(Message.INFORME_NOME);
                 String sex = Prompt.lineReader(Message.INFORME_SEXO);
                 Integer CPF = Prompt.intReader(Message.INFORME_CPF);
-                LocalDate dataAdmissao = Prompt.dateReader(Message.INFORME_DATA_ADMISSAO);
+                LocalDate dataAdmissao = Prompt.dateReader(Message.INFORME_DATA);
                 LocalTime horarioEntrada = Prompt.hourReader(Message.INFORME_HORA_ENTRADA);
                 LocalTime horarioSaida = Prompt.hourReader(Message.INFORME_HORA_SAIDA);
                 // BUSCANDO POR CPF
