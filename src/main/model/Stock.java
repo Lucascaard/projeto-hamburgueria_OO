@@ -1,5 +1,8 @@
 package main.model;
 
+import javax.persistence.Entity;
+
+@Entity
 public class Stock {
 
     private Integer id;
