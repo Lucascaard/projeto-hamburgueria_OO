@@ -1,29 +1,27 @@
 package main.model;
 
+import javax.persistence.*;
 
+@Entity
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Produto  {
-
-    private int id;
+    @Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
     private String nome;
     private String marca;
     private double preco;
     private int codBarra;
     
-    public Produto(int id, String nome, String marca, double preco, int codBarra) {
-        this.id = id;
+    public Produto( String nome, String marca, double preco, int codBarra) {
     	this.nome = nome;
     	this.marca = marca;
     	this.preco = preco;
     	this.codBarra = codBarra;
     }
 
-    //id
-    public int getId() {
+    public long getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
 	//nome
@@ -64,7 +62,11 @@ public class Produto  {
 
     @Override
     public String toString() {
-        return super.toString();
+        return "id: " + getId() + "\n" +
+        "Nome: " + getNome() + "\n" + 
+        "Marca: " + getMarca() + "\n" + 
+        "Preço: " + getPreco() + "\n" +
+        "Código de barra: " + getCodBarra();
     }
     
 }
