@@ -9,7 +9,7 @@ import main.view.Command;
 import main.view.MainView;
 import main.view.StockView;
 
-public class StockMenu {
+public class StockMenu extends Menu{
     
     private List<ItemMenu> itens = new ArrayList<>();
     private StockController control = StockController.getInstance();
@@ -42,7 +42,7 @@ public class StockMenu {
                 Prompt.separator();
                 Prompt.blankLine();
                 Long id = (long) Prompt.intReader(Message.INFORME_ID);
-                Long qnty = (long) Prompt.intReader(Message.INFORME_QUANTIDADE);
+                // Long qnty = (long) Prompt.intReader(Message.INFORME_QUANTIDADE);
 
                 if(StockController.getInstance().ProductExists(id) != null){
                     Prompt.separator();

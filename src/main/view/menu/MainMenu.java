@@ -27,7 +27,7 @@ public class MainMenu extends Menu {
 
         adicionar(3, Message.MENU_ESTOQUE, new Command(){
             public void exe(){
-                //Chama a View de Estoque
+                StockView.getInstance().show();
             }
         });
 
