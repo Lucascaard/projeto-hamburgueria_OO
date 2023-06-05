@@ -7,7 +7,7 @@ import main.view.*;
 import main.controller.*;
 import main.model.*;
 
-public class ProductMenu {
+public class ProductMenu extends Menu{
     
     private List<ItemMenu> itens = new ArrayList<>();
     private ProductController control = ProductController.getInstance();
@@ -38,27 +38,28 @@ public class ProductMenu {
                 Prompt.separator();
                 Prompt.print(Message.MSG_CADASTRO_PRODUTO);
                 Prompt.separator();
-                Integer id = Prompt.intReader(Message.INFORME_ID);
+                //Integer id = Prompt.intReader(Message.INFORME_ID);
                 String nome = Prompt.lineReader(Message.INFORME_NOME_PRODUTO);
         	    String marca = Prompt.lineReader(Message.INFORME_MARCA);
         	    double preco  = Prompt.decimalReader(Message.INFORME_PRECO);
         	    int codBarra = Prompt.intReader(Message.INFORME_CODBARRA);
-                Long longID = id.longValue();
-                if(ProductController.getInstance().produtoExists(longID) != null){
-                    Prompt.separator();
-                    Prompt.print(Message.ID_JA_EXISTE);
-                    Prompt.separator();
-                    Prompt.blankLine();
-                    ProductView.getInstance().show();
-                }
-                Prompt.blankLine();
-                Prompt.separator();
-                Prompt.print(Message.PRODUTO_CADASTRADO_ESTOQUE);
-                Prompt.separator();
-                Prompt.blankLine();
+
+
+                // if(ProductController.getInstance().produtoExists(get) != null){
+                //     Prompt.separator();
+                //     Prompt.print(Message.ID_JA_EXISTE);
+                //     Prompt.separator();
+                //     Prompt.blankLine();
+                //     ProductView.getInstance().show();
+                // }
+                // Prompt.blankLine();
+                // Prompt.separator();
+                // Prompt.print(Message.PRODUTO_CADASTRADO_ESTOQUE);
+                // Prompt.separator();
+                // Prompt.blankLine();
 
                 if(!nome.isEmpty()){
-                    Produto newProduct = new Produto(id, nome, marca, preco, codBarra);
+                    Produto newProduct = new Produto(nome, marca, preco, codBarra);
                     control.create(newProduct);
                 }
                 Prompt.blankLine();

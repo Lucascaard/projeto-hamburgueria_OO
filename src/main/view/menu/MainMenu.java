@@ -39,7 +39,7 @@ public class MainMenu extends Menu {
 
         adicionar(5, Message.MENU_PRODUTO, new Command(){
             public void exe(){
-                //Chama a View de Produto
+                ProductView.getInstance().show();
             }
         });
 
