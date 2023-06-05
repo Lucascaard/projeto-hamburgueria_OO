@@ -2,11 +2,13 @@ package main.model;
 
 import java.time.LocalDateTime;
 
-public class Pedido {
+public class Order {
 
 		private  LocalDateTime dataPedido;
 		private Client cliente;
 		private Funcionario atendente;
+		private Integer idpedido;
+		private Integer quantidade;
 		// private Estoque produto;
 		
 		//GETTERS e SETTERS
@@ -37,6 +39,26 @@ public class Pedido {
 		public Funcionario getAtendente() {
 			return atendente;
 		}
+
+		//ID do pedido
+		public Integer getIdpedido() {
+			return this.idpedido;
+		}
+
+		public void setIdpedido(Integer idpedido) {
+			this.idpedido = idpedido;
+		}
+
+		//Quantidade
+		public Integer getQuantidade() {
+			return this.quantidade;
+		}
+
+		public void setQuantidade(Integer quantidade) {
+			this.quantidade = quantidade;
+	}
+
+
 		
 		@Override
 		public String toString() {
