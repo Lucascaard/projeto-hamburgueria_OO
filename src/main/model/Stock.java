@@ -8,8 +8,35 @@ public class Stock {
     @Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @OneToOne
+    @JoinColumn(name="id_Produto")
     private Produto product;
     private Long qnty;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Produto getProduct() {
+        return product;
+    }
+
+    public void setProduct(Produto product) {
+        this.product = product;
+    }
+
+    public Long getQnty() {
+        return qnty;
+    }
+
+    public void setQnty(Long qnty) {
+        this.qnty = qnty;
+    }
 
     public Stock(){
 
@@ -20,22 +47,7 @@ public class Stock {
         this.qnty = qnty;
     }
 
-    public Long getId() {
-        return this.id;
-    }
- 
-    public Produto getProduct() {
-        return product;
-    }
-    public void setProduct(Produto produto) {
-        this.product = produto;
-    }
-    public Long getQnty() {
-        return qnty;
-    }
-    public void setQnty(Long qtde) {
-        this.qnty = qtde;
-    }
+
     
     @Override
     public String toString() {
