@@ -13,15 +13,15 @@
       <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver" />
       
       <!-- String de conexão padrão do mySQL Workbench com o nome do banco 'Project_Hamburgueria' -->
-      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/Project_Hamburgueria?createDatabaseIfNotExist=true&amp;useSSL=false" />
+      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/Project_Hamburgueria?createDatabaseIfNotExist=true&amp;useSSL=false&amp;serverTimezone=America/Sao_Paulo" />
       <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect" />
       
       <!-- PARA CONECTAR COM O mySQL DE VOCÊS É NECESSARIO MUDAR SOMENTE O 'value' de 'login' E DE 'senha' --> 
       <!--LOGIN DO mySQL Workbench -->
-      <property name="javax.persistence.jdbc.user" value="lucas" />
+      <property name="javax.persistence.jdbc.user" value="root" />
       
       <!--SENHA -->
-      <property name="javax.persistence.jdbc.password" value="123456" />
+      <property name="javax.persistence.jdbc.password" value="positivo" />
       <property name="hibernate.hbm2ddl.auto" value="update"/>
       
       <!-- Desabilitando logs do hibernate -->
