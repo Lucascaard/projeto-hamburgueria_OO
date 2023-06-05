@@ -2,11 +2,18 @@ package main.model;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
+import javax.persistence.Entity;
+
+@Entity
 public class Worker extends Pessoa {
 	
 		private LocalDate dataAdmissao;
 		private LocalTime horarioEntrada;
 		private LocalTime horarioSaida;
+
+		public Worker(){
+			
+		}
 		
 		public Worker(String nome, String sexo, Integer CPF, LocalDate dataAdmissao, LocalTime horarioEntrada, LocalTime horarioSaida) {
 			super(nome, CPF, sexo);
@@ -42,7 +49,8 @@ public class Worker extends Pessoa {
 		@Override
 		public String toString() {
 		// TODO Auto-generated method stub
-		return "Funcionário:" + getName() + "\n" +
+		return 	"ID: " + getId() + "\n" +
+				"Funcionário:" + getName() + "\n" +
 				"CPF:" + getCPF() + "\n" +
 				"Sexo: " + getSex() + "\n" +
 				"Data de Admissão: " + getDataAdmissao() + "\n" +
