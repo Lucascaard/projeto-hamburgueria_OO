@@ -22,6 +22,7 @@ public class MainMenu extends Menu {
         adicionar(2, Message.MENU_FUNCIONARIO, new Command(){
             public void exe(){
                 //Chama a View de Funcionario
+                WorkerView.getInstance().show();
             }
         });
 

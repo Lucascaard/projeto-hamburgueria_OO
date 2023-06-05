@@ -1,6 +1,8 @@
 package main.view;
 
-import com.mysql.cj.protocol.Message;
+import main.util.Message;
+import main.view.menu.Menu;
+import main.view.menu.WorkerMenu;
 
 public class WorkerView extends View {
     

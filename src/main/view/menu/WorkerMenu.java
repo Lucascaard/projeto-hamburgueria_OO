@@ -1,5 +1,7 @@
 package main.view.menu;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 import main.util.*;
@@ -42,10 +44,10 @@ public class WorkerMenu extends Menu {
                 Prompt.blankLine();
                 String name = Prompt.lineReader(Message.INFORME_NOME);
                 String sex = Prompt.lineReader(Message.INFORME_SEXO);
-                String CPF = Prompt.lineReader(Message.INFORME_CPF);
-                String dataAdmissao = Prompt.lineReader(Message.INFORME_DATA_ADMISSAO);
-                String timeEnter = Prompt.lineReader(Message.INFORME_HORA_ENTRADA);
-                String timeExit = Prompt.lineReader(Message.INFORME_HORA_SAIDA);
+                Integer CPF = Prompt.intReader(Message.INFORME_CPF);
+                LocalDate dataAdmissao = Prompt.dateReader(Message.INFORME_DATA_ADMISSAO);
+                LocalTime horarioEntrada = Prompt.hourReader(Message.INFORME_HORA_ENTRADA);
+                LocalTime horarioSaida = Prompt.hourReader(Message.INFORME_HORA_SAIDA);
                 // BUSCANDO POR CPF
                 Long longCPF = CPF.longValue();
                 if (WorkerController.getInstance().workerExists(longCPF) != null) {
@@ -78,7 +80,7 @@ public class WorkerMenu extends Menu {
             public void exe() {
                 Prompt.blankLine();
                 Prompt.print(Message.UPDATE_FUNCIONARIO);
-                Long id = Prompt.longReader(Message.INFORM_ID);
+                Long id = (long) Prompt.intReader(Message.INFORM_ID);
 
                 if (id > 0) {
                     Worker WorkerUpdate = control.search(id);
@@ -86,10 +88,10 @@ public class WorkerMenu extends Menu {
                     if (WorkerUpdate != null) {
                         String name = Prompt.lineReader(Message.INFORME_NOME);
                         String sex = Prompt.lineReader(Message.INFORME_SEXO);
-                        String CPF = Prompt.lineReader(Message.INFORME_CPF);
-                        String dataAdmissao = Prompt.lineReader(Message.INFORME_DATA_ADMISSAO);
-                        String horarioEntrada = Prompt.lineReader(Message.INFORME_HORA_ENTRADA);
-                        String horarioSaida = Prompt.lineReader(Message.INFORME_HORA_SAIDA);
+                        Integer CPF = Prompt.intReader(Message.INFORME_CPF);
+                        LocalDate dataAdmissao = Prompt.dateReader(Message.INFORME_DATA_ADMISSAO);
+                        LocalTime horarioEntrada = Prompt.hourReader(Message.INFORME_HORA_ENTRADA);
+                        LocalTime horarioSaida = Prompt.hourReader(Message.INFORME_HORA_SAIDA);
 
                         if (!name.isEmpty() && CPF != null) {
                             WorkerUpdate.setName(name);

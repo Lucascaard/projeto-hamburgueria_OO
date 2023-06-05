@@ -1,5 +1,11 @@
 package main.controller;
 
+import java.util.List;
+
+import main.daos.DAO;
+import main.daos.WorkerDAO;
+import main.model.Worker;
+
 public class WorkerController {
         
     private static WorkerController instance;
