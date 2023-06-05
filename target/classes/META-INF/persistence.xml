@@ -13,7 +13,7 @@
       <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver" />
       
       <!-- String de conexão padrão do mySQL Workbench com o nome do banco 'Project_Hamburgueria' -->
-      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/Project_Hamburgueria?createDatabaseIfNotExist=true&amp;useSSL=false" />
+      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/Project_Hamburgueria?createDatabaseIfNotExist=true&amp;useSSL=false&amp;serverTimezone=America/Sao_Paulo" />
       <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect" />
       
       <!-- PARA CONECTAR COM O mySQL DE VOCÊS É NECESSARIO MUDAR SOMENTE O 'value' de 'login' E DE 'senha' --> 

@@ -1,11 +1,13 @@
 package main.model;
 
-import javax.persistence.Entity;
+import javax.persistence.*;
 
 @Entity
 public class Stock {
 
-    private Integer id;
+    @Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private Produto product;
     private Long qnty;
 
@@ -13,18 +15,15 @@ public class Stock {
 
     }
 
-    public Stock(Integer id, Produto product, Long qnty) {
-        this.id = id;
+    public Stock(Produto product, Long qnty) {
         this.product = product;
         this.qnty = qnty;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return this.id;
     }
-    public void setId(Integer id) {
-        this.id = id;
-    }
+ 
     public Produto getProduct() {
         return product;
     }
@@ -40,6 +39,6 @@ public class Stock {
     
     @Override
     public String toString() {
-        return "ID: " + id +  "Produto: " + product + "\nQuantidade: " + qnty;
+        return "ID: " + getId() +  "Produto: " + product + "\nQuantidade: " + qnty;
     }
 }
