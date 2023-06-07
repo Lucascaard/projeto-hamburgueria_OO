@@ -2,13 +2,11 @@ package main.view.menu;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import com.mysql.cj.x.protobuf.MysqlxCrud.Order;
-
 import main.util.*;
 import main.view.*;
 import main.controller.*;
 import main.model.*;
+
 
 public class OrderMenu extends Menu {
     
@@ -18,7 +16,7 @@ public class OrderMenu extends Menu {
 
     public OrderMenu(){
 
-        Command OrdertList = new Command() {
+        Command OrderList = new Command() {
 			public void exe() {
 				Prompt.blankLine();
 				Prompt.print(Message.LISTA_DE_PEDIDOS);
@@ -45,9 +43,9 @@ public class OrderMenu extends Menu {
                 Prompt.blankLine();
                 String cliente = Prompt.lineReader(Message.INFORME_CLIENTE);
                 String atendente = Prompt.lineReader(Message.INFORME_ATENDENTE);
-                Integer idpedido = Prompt.lineReader(Message.INFORME_ID_PEDIDO);
-                Integer quantidade = Prompt.lineReader(Message.INFORME_PEDIDO_QUANTIDADE);
-                if(OrderController.getInstance().orderExists(longIdpedido) != null){
+                String idpedido = Prompt.lineReader(Message.INFORME_ID_PEDIDO);
+                String quantidade = Prompt.lineReader(Message.INFORME_PEDIDO_QUANTIDADE);
+                if(OrderController.getInstance().orderExists(idpedido) != null){
                         Prompt.separator();
                         Prompt.print(Message.JA_EXISTE_PEDIDO);
                         Prompt.separator();
@@ -84,8 +82,8 @@ public class OrderMenu extends Menu {
                     if(OrderUpdate != null){
                         String cliente = Prompt.lineReader(Message.INFORME_CLIENTE);
                         String atendente = Prompt.lineReader(Message.INFORME_ATENDENTE);
-                        Integer idpedido = Prompt.lineReader(Message.INFORME_ID_PEDIDO);
-                        Integer quantidade = Prompt.lineReader(Message.INFORME_PEDIDO_QUANTIDADE);
+                        Integer idpedido = Prompt.intReader(Message.INFORME_ID_PEDIDO);
+                        Integer quantidade = Prompt.intReader(Message.INFORME_PEDIDO_QUANTIDADE);
 
                         if(!cliente.isEmpty() && idpedido != null){
                             OrderUpdate.setCliente(cliente);

@@ -1,5 +1,8 @@
 package main.view;
 
+import main.util.Message;
+import main.view.menu.*;
+
 public class OrderView extends View{
     
     private static OrderView instance;
@@ -8,8 +11,8 @@ public class OrderView extends View{
         super(Message.MENU_PEDIDO, new OrderMenu());
     }
 
-    public OrderView(String titlte, Menu menu){
-        super(titlte, menu);
+    public OrderView(String title, Menu menu){
+        super(title, menu);
     }
 
     public static synchronized View getInstance() {
@@ -18,7 +21,5 @@ public class OrderView extends View{
 		}
 		return instance;
 	}
-    
-}
     
 }

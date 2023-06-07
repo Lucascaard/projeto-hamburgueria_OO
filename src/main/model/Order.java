@@ -7,8 +7,8 @@ public class Order {
 		private  LocalDateTime dataPedido;
 		private Client cliente;
 		private Funcionario atendente;
-		private Integer idpedido;
-		private Integer quantidade;
+		private String idpedido;
+		private String quantidade;
 		// private Estoque produto;
 		
 		//GETTERS e SETTERS
@@ -41,20 +41,20 @@ public class Order {
 		}
 
 		//ID do pedido
-		public Integer getIdpedido() {
+		public String getIdpedido() {
 			return this.idpedido;
 		}
 
-		public void setIdpedido(Integer idpedido) {
+		public void setIdpedido(String idpedido) {
 			this.idpedido = idpedido;
 		}
 
 		//Quantidade
-		public Integer getQuantidade() {
+		public String getQuantidade() {
 			return this.quantidade;
 		}
 
-		public void setQuantidade(Integer quantidade) {
+		public void setQuantidade(String quantidade) {
 			this.quantidade = quantidade;
 	}
 
