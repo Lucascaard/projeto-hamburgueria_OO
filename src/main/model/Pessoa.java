@@ -51,4 +51,8 @@ public class Pessoa {
 	public String getSex() {
 		return sexo;
 	}
+
+	public Long getId() {
+		return id;
+	}
 }

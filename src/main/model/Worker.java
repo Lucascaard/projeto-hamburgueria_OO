@@ -2,13 +2,20 @@ package main.model;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
-public class Funcionario extends Pessoa {
+import javax.persistence.Entity;
+
+@Entity
+public class Worker extends Pessoa {
 	
 		private LocalDate dataAdmissao;
 		private LocalTime horarioEntrada;
 		private LocalTime horarioSaida;
+
+		public Worker(){
+			
+		}
 		
-		public Funcionario(String nome, Integer CPF, String sexo, LocalDate dataAdmissao, LocalTime horarioEntrada, LocalTime horarioSaida) {
+		public Worker(String nome, String sexo, Integer CPF, LocalDate dataAdmissao, LocalTime horarioEntrada, LocalTime horarioSaida) {
 			super(nome, CPF, sexo);
 			this.dataAdmissao = dataAdmissao;
 			this.horarioEntrada = horarioEntrada;
@@ -42,6 +49,12 @@ public class Funcionario extends Pessoa {
 		@Override
 		public String toString() {
 		// TODO Auto-generated method stub
-		return super.toString();
+		return 	"ID: " + getId() + "\n" +
+				"Funcionário:" + getName() + "\n" +
+				"CPF:" + getCPF() + "\n" +
+				"Sexo: " + getSex() + "\n" +
+				"Data de Admissão: " + getDataAdmissao() + "\n" +
+				"Horário de Entrada: " + getHorarioEntrada() + "\n" +
+				"Horário de Saída: " + getHorarioSaida();
 		}
 	}	

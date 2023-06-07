@@ -79,7 +79,8 @@ public interface Message {
     final static String FUNCIONARIO_CPF_DELETE = "INFORME O CPF DO FUNCIONÁRIO QUE DESEJA DELETAR";
     final static String FUNCIONARIO_EXCLUIDO = "FUNCIONÁRIO EXCLUÍDO COM SUCESSO";
     final static String DELETAR_FUNCIONARIO = "DELETAR FUNCIONÁRIO";
-    final static String FUNC_CAD_SUCESSO = "FUNCIONARIO CADASTRADO COM SUCESSO";
+    final static String FUNCIONARIO_CADASTRADO = "FUNCIONARIO CADASTRADO COM SUCESSO";
+    final static String JA_EXISTE_FUNCIONARIO = "JÁ EXISTE UM FUNCIONÁRIO CADASTRADO COM ESSE CPF";
 
     //PRODUTO
     final static String MSG_CADASTRO_PRODUTO = "CADASTRO DE PRODUTOS";
@@ -108,7 +109,7 @@ public interface Message {
     final static String INFORME_PRODUTO = "INFORME O PRODUTO: ";
     final static String INFORME_QUANTIDADE = "INFORME A QUANTIDADE: ";
     final static String INFORME_ENDERECO_ESTOQUE = "INFORME O ENDEREÇO: ";
-    final static String LISTA_ESTOQUE = "LISTA DO ESTOQUE";
+    final static String LISTA_ESTOQUE = "LISTAR ESTOQUE";
     final static String ESTOQUE_VAZIO = "ESTOQUE VAZIO";
     final static String ID_INVALIDA = "ID INVÁLIDA";
     final static String UPDATE_ESTOQUE = "ATUALIZAR ESTOQUE";

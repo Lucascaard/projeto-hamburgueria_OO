@@ -37,7 +37,8 @@ public class Client extends Pessoa {
 
 	@Override
 	public String toString() {
-		return "Cliente:" + getName() + "\n" +
+		return 	"ID: " + getId() + "\n" +
+				"Cliente:" + getName() + "\n" +
 				"CPF: " + getCPF() + "\n" +
 				"Sexo: " + getSex() + "\n" +
 				"Endereço: " + getAddress();

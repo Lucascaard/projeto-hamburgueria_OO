@@ -22,12 +22,13 @@ public class MainMenu extends Menu {
         adicionar(2, Message.MENU_FUNCIONARIO, new Command(){
             public void exe(){
                 //Chama a View de Funcionario
+                WorkerView.getInstance().show();
             }
         });
 
         adicionar(3, Message.MENU_ESTOQUE, new Command(){
             public void exe(){
-                //Chama a View de Estoque
+                StockView.getInstance().show();
             }
         });
 
@@ -39,7 +40,7 @@ public class MainMenu extends Menu {
 
         adicionar(5, Message.MENU_PRODUTO, new Command(){
             public void exe(){
-                //Chama a View de Produto
+                ProductView.getInstance().show();
             }
         });
 

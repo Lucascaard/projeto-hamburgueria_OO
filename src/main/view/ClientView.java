@@ -11,8 +11,8 @@ public class ClientView extends View {
         super(Message.MENU_CLIENTE, new ClientMenu());
     }
 
-    public ClientView(String titlte, Menu menu){
-        super(titlte, menu);
+    public ClientView(String title, Menu menu){
+        super(title, menu);
     }
 
     public static synchronized View getInstance() {
