@@ -145,6 +145,22 @@ public interface Message {
     final static String INFORME_DATA_ADMISSAO = "INFORME A DATA DE ADMISSÃO DO GERENTE Ex: AAAA-MM-DD";
     final static String INFORME_SALARIO = "INFORME O SALÁRIO DO GERENTE Ex: 2000.0"; 
     
-    
+    //PEDIDO
+    final static String MENU_PEDIDO = "MENU PEDIDO";
+    final static String MSG_CADASTRO_PEDIDO = "CADASTRO DE PEDIDOS";
+    final static String LISTA_DE_PEDIDOS = "LISTA DE PEDIDOS";
+    final static String NAO_HA_PEDIDOS = "NÃO EXISTEM PEDIDOS CADASTRADOS";
+    final static String UP_PEDIDO = "ALTERAR PEDIDO";
+    final static String INFORME_ID_PEDIDO = "INFORME O ID DO PEDIDO";
+    final static String PEDIDO_JA_EXISTE = "JÁ EXISTE UM PEDIDO COM ESSE ID";
+    final static String PEDIDO_ALTERADO_COM_SUCESSO = "PEDIDO ALTERADO COM SUCESSO";
+    final static String INFORME_PEDIDO_QUANTIDADE = "INFORME A QUANTIDADE DO PEDIDO";
+    final static String PEDIDO_NAO_EXISTE = "O PEDIDO NÃO EXISTE";
+    final static String INFORME_CLIENTE = "INFORME O NOME DO(A) CLIENTE";
+    final static String INFORME_ATENDENTE = "INFORME O NOME DO(A) ATENDENTE";
+    final static String PEDIDO_CADASTRADO = "PEDIDO CADASTRADO COM SUCESSO";
+    final static String DELETAR_PEDIDO = "DELETAR PEDIDO";
+    final static String PEDIDO_EXCLUIDO_COM_SUCESSO = "PEDIDO EXCLUIDO COM SUCESSO";
+    final static String PEDIDO_NAO_ENCONTRADO = "PEDIDO NAO ENCONTRADO";
 
 }
