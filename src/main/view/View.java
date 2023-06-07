@@ -22,8 +22,11 @@ public abstract class View {
     public void show(){
         if(menu != null){
             Prompt.blankLine();
+            Prompt.separator();
             Prompt.print(title);
+            Prompt.separator();
             Prompt.print(Message.MSG_ESCOLHA_UMA_OPÇÃO);
+            Prompt.blankLine();
             List<ItemMenu> itensMenu = menu.getItens();
             for (ItemMenu item : itensMenu) {
                 item.show();

@@ -1,6 +1,6 @@
 package main.view.menu;
 
-import java.time.LocalDateTime;
+//import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import main.util.*;
@@ -36,7 +36,7 @@ public class OrderMenu extends Menu{
 		};
 
         adicionar(1, Message.CREATE, new Command(){
-            public void exe(){
+            public void exe(){/*
                 Prompt.separator();
                 Prompt.print(Message.MSG_CADASTRO_PEDIDO);
                 Prompt.separator();
@@ -66,8 +66,8 @@ public class OrderMenu extends Menu{
                 }
                     Prompt.blankLine();
                     OrderList.exe();
-            }
-        });
+            */}
+         });
 
         adicionar(2, Message.READ, OrderList);
 

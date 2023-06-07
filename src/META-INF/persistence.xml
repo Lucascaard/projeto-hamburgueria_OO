@@ -18,19 +18,16 @@
       
       <!-- PARA CONECTAR COM O mySQL DE VOCÊS É NECESSARIO MUDAR SOMENTE O 'value' de 'login' E DE 'senha' --> 
       <!--LOGIN DO mySQL Workbench -->
-      <property name="javax.persistence.jdbc.user" value="root" />
+      <property name="javax.persistence.jdbc.user" value="lucas" />
       
       <!--SENHA -->
-      <property name="javax.persistence.jdbc.password" value="positivo" />
+      <property name="javax.persistence.jdbc.password" value="123456" />
       <property name="hibernate.hbm2ddl.auto" value="update"/>
       
-      <!-- Desabilitando logs do hibernate -->
+      <!-- Desabilitando logs do Hibernate -->
+      <property name="org.hibernate.flushmode" value="COMMIT" />
       <property name="hibernate.show_sql" value="false" />
       <property name="hibernate.format_sql" value="false" />
-
-      <property name="hibernate.ejb.interceptor.level" value="WARN" />
-
-
     </properties>
   </persistence-unit>
 </persistence>

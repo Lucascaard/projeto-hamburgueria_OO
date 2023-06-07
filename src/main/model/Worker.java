@@ -48,7 +48,6 @@ public class Worker extends Pessoa {
 
 		@Override
 		public String toString() {
-		// TODO Auto-generated method stub
 		return 	"ID: " + getId() + "\n" +
 				"Funcionário:" + getName() + "\n" +
 				"CPF:" + getCPF() + "\n" +

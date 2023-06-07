@@ -5,7 +5,7 @@ import java.util.List;
 
 import main.controller.ProductController;
 import main.controller.StockController;
-import main.daos.ProdutoDAO;
+//import main.daos.ProdutoDAO;
 import main.model.Produto;
 import main.model.Stock;
 import main.util.*;

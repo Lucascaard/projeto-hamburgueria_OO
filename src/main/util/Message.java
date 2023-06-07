@@ -4,7 +4,7 @@ public interface Message {
 
 
     //NOVAS MSG
-    final static String INFORM_ID = "INFORME O ID";
+    final static String INFORM_ID = "INFORME O ID:";
 
     //CRUD
     final static String CREATE = "CADASTRAR ";
@@ -23,9 +23,9 @@ public interface Message {
     final static String FINALIZAR_PROGRAMA = "FINALIZAR PROGRAMA";
 
     //LOGIN
-    final static String TELA_LOGIN = "                   TELA DE LOGIN";
-    final static String MSG_INFORME_LOGIN = "INFORME O LOGIN: ";
-    final static String MSG_INFORME_SENHA = "INFORME A SENHA: ";
+    final static String TELA_LOGIN = "               TELA DE LOGIN";
+    final static String MSG_INFORME_LOGIN = "INFORME O LOGIN: (login)";
+    final static String MSG_INFORME_SENHA = "INFORME A SENHA: (senha)";
     final static String MSG_LOGIN_OR_SENHA_INVALID = "LOGIN OU SENHA INVALIDO, TENTE NOVAMENTE!";
 
     //CADASTROS

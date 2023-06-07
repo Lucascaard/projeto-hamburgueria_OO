@@ -12,7 +12,10 @@ public class LoginView extends View {
 
     @Override
     public void show(){
+        Prompt.separator();
         Prompt.print(title);
+        Prompt.separator();
+        Prompt.blankLine();
         String login = Prompt.lineReader(Message.MSG_INFORME_LOGIN);
         String password = Prompt.lineReader(Message.MSG_INFORME_SENHA);
 
