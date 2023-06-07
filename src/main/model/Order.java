@@ -1,27 +1,31 @@
 package main.model;
 
-import java.time.LocalDateTime;
+import javax.persistence.Entity;
 
+@Entity
 public class Order {
 
-		private  LocalDateTime dataPedido;
 		private Client cliente;
 		private Worker atendente;
-		private String idpedido;
-		private String quantidade;
+		private Long idpedido;
+		private Long quantidade;
 		// private Estoque produto;
 		
+		// Construtor
+		public Order(){
+			
+		}
+		
+		public Order(Client cliente, Worker atendente, Long idpedido, Long quantidade) {
+			this.cliente = cliente;
+			this.atendente = atendente;
+			this.idpedido = idpedido;
+			this.quantidade = quantidade;
+		}
+
+
 		//GETTERS e SETTERS
-		
-		//dataPedido
-		public void setDataPedido(LocalDateTime dataPedidoExterno ) {
-			this.dataPedido = dataPedidoExterno;
-		}
-		
-		public LocalDateTime getDataPedido() {
-			return dataPedido;
-		}
-		
+
 		//cliente
 		public void setCliente( Client clienteExterno ) {
 			this.cliente = clienteExterno;
@@ -41,20 +45,20 @@ public class Order {
 		}
 
 		//ID do pedido
-		public String getIdpedido() {
+		public Long getIdpedido() {
 			return this.idpedido;
 		}
 
-		public void setIdpedido(String idpedido) {
+		public void setIdpedido(Long idpedido) {
 			this.idpedido = idpedido;
 		}
 
 		//Quantidade
-		public String getQuantidade() {
+		public Long getQuantidade() {
 			return this.quantidade;
 		}
 
-		public void setQuantidade(String quantidade) {
+		public void setQuantidade(Long quantidade) {
 			this.quantidade = quantidade;
 	}
 

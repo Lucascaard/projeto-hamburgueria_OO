@@ -162,6 +162,7 @@ public interface Message {
     final static String DELETAR_PEDIDO = "INFORME O PEDIDO QUE DESEJA DELETAR";
     final static String PEDIDO_EXCLUIDO_COM_SUCESSO = "O PEDIDO FOI DELETADO COM SUCESSO";
     final static String PEDIDO_CADASTRADO = "PEDIDO CADASTRADO COM SUCESSO";
+    final static String ERRO_AO_CRIAR_PEDIDO = "ERRO AO CRIAR O PEDIDO";
 
     
     

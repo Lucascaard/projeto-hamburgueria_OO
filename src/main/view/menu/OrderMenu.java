@@ -5,6 +5,7 @@ import java.util.List;
 import main.util.*;
 import main.view.*;
 import main.controller.*;
+import main.daos.ProdutoDAO;
 import main.model.*;
 
 
@@ -12,7 +13,10 @@ public class OrderMenu extends Menu {
     
     private List<ItemMenu> itens = new ArrayList<>();
     private OrderController control = OrderController.getInstance();
-
+    private ClientController clientControl = ClientController.getInstance();
+    private WorkerController workerControl = WorkerController.getInstance();
+    private ProductController productControl = ProductController.getInstance();
+    private StockController stockControl = StockController.getInstance();
 
     public OrderMenu(){
 
@@ -41,28 +45,50 @@ public class OrderMenu extends Menu {
                 Prompt.print(Message.MSG_CADASTRO_PEDIDO);
                 Prompt.separator();
                 Prompt.blankLine();
-                String cliente = Prompt.lineReader(Message.INFORME_CLIENTE);
-                String atendente = Prompt.lineReader(Message.INFORME_ATENDENTE);
-                String idpedido = Prompt.lineReader(Message.INFORME_ID_PEDIDO);
-                String quantidade = Prompt.lineReader(Message.INFORME_PEDIDO_QUANTIDADE);
+                Long CPFcliente = (long) Prompt.intReader(Message.INFORME_CPF);
+                Long CPFatendente = (long) Prompt.intReader(Message.INFORME_ATENDENTE);
+                Long idpedido = (long) Prompt.intReader(Message.INFORME_ID_PEDIDO);
+                Long quantidade = (long) Prompt.intReader(Message.INFORME_PEDIDO_QUANTIDADE);
                 if(OrderController.getInstance().orderExists(idpedido) != null){
                         Prompt.separator();
                         Prompt.print(Message.JA_EXISTE_PEDIDO);
                         Prompt.separator();
                         Prompt.blankLine();
                         ClientView.getInstance().show();
+                } else {
+
+                    Client client = new Client();
+                    Worker worker = new Worker();
+                    Produto product = new Produto();
+                    Stock stock = new Stock();
+
+                    client = clientControl.clientExists(CPFcliente);
+                    worker = workerControl.workerExists(CPFatendente);
+                    product = productControl.produtoExists(idpedido);
+                    stock = stockControl.search(idpedido);
+
+                    if(client != null && worker != null && product != null && stock != null){
+
+                        stock.setQnty(stock.getQnty() - quantidade);
+
+                        stockControl.update(stock);
+
+                        Order order = new Order(client, worker, idpedido, quantidade);
+    
+                        control.create(order);
+    
+                        Prompt.blankLine();
+                        Prompt.separator();
+                        Prompt.print(Message.PEDIDO_CADASTRADO);
+                        Prompt.separator();
+                        Prompt.blankLine();
+                    } else {
+                        Prompt.blankLine();
+                        Prompt.print(Message.ERRO_AO_CRIAR_PEDIDO);
                     }
-                Prompt.blankLine();
-                Prompt.separator();
-                Prompt.print(Message.PEDIDO_CADASTRADO);
-                Prompt.separator();
-                Prompt.blankLine();
 
-                if(!idpedido.isEmpty()) {
-
-                    Idpedido newIdpedido = new Idpedido(idpedido);
-                    control.create(newIdpedido);
                 }
+
                     Prompt.blankLine();
                     OrderList.exe();
             }
@@ -70,41 +96,41 @@ public class OrderMenu extends Menu {
 
         adicionar(2, Message.READ, OrderList);
 
-        adicionar(3, Message.UPDATE, new Command(){
-            public void exe(){
-                Prompt.blankLine();
-                Prompt.print(Message.UP_PEDIDO);
-                Long idpedido = (long) Prompt.intReader(Message.INFORME_ID_PEDIDO);
+        // adicionar(3, Message.UPDATE, new Command(){
+        //     public void exe(){
+        //         Prompt.blankLine();
+        //         Prompt.print(Message.UP_PEDIDO);
+        //         Long idpedido = (long) Prompt.intReader(Message.INFORME_ID_PEDIDO);
                 
-                if(idpedido > 0){
-                    Order OrderUpdate = control.search(idpedido);
+        //         if(idpedido > 0){
+        //             Order OrderUpdate = control.search(idpedido);
 
-                    if(OrderUpdate != null){
-                        String cliente = Prompt.lineReader(Message.INFORME_CLIENTE);
-                        String atendente = Prompt.lineReader(Message.INFORME_ATENDENTE);
-                        Integer idpedido = Prompt.intReader(Message.INFORME_ID_PEDIDO);
-                        Integer quantidade = Prompt.intReader(Message.INFORME_PEDIDO_QUANTIDADE);
+        //             if(OrderUpdate != null){
+        //                 Long CPFcliente = (long) Prompt.intReader(Message.INFORME_CPF);
+        //                 Long CPFatendente = (long) Prompt.intReader(Message.INFORME_ATENDENTE);
+        //                 Long idpedido = (long) Prompt.intReader(Message.INFORME_ID_PEDIDO);
+        //                 Long quantidade = (long) Prompt.intReader(Message.INFORME_PEDIDO_QUANTIDADE);
 
-                        if(!cliente.isEmpty() && idpedido != null){
-                            OrderUpdate.setCliente(cliente);
-                            OrderUpdate.setAtendente(atendente);
-                            OrderUpdate.setIdpedido(idpedido);
-                            OrderUpdate.setQuantidade(quantidade);
+        //                 if(!cliente.isEmpty() && idpedido != null){
+        //                     OrderUpdate.setCliente(CPFcliente);
+        //                     OrderUpdate.setAtendente(CPFatendente);
+        //                     OrderUpdate.setIdpedido(idpedido);
+        //                     OrderUpdate.setQuantidade(quantidade);
 
-                            control.update(OrderUpdate);
-                            Prompt.blankLine();
-                            Prompt.print(Message.PEDIDO_ALTERADO_COM_SUCESSO);
-                            }
-                    } else{
-                        Prompt.blankLine();
-                        Prompt.print(Message.PEDIDO_NAO_ENCONTRADO);
-                        }
-                    Prompt.blankLine();
-                    Prompt.pressEnter();
-                    }
-                OrderList.exe();
-                }
-        });
+        //                     control.update(OrderUpdate);
+        //                     Prompt.blankLine();
+        //                     Prompt.print(Message.PEDIDO_ALTERADO_COM_SUCESSO);
+        //                     }
+        //             } else{
+        //                 Prompt.blankLine();
+        //                 Prompt.print(Message.PEDIDO_NAO_ENCONTRADO);
+        //                 }
+        //             Prompt.blankLine();
+        //             Prompt.pressEnter();
+        //             }
+        //         OrderList.exe();
+        //         }
+        // });
 
         adicionar(4, Message.DELETE, new Command(){
             public void exe(){
