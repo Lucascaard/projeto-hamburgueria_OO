@@ -11,7 +11,18 @@ public class Produto  {
     private String marca;
     private double preco;
     private int codBarra;
+
+    public Produto(){
+
+    }
     
+    public Produto( String nome, String marca, double preco, int codBarra) {
+    	this.nome = nome;
+    	this.marca = marca;
+    	this.preco = preco;
+    	this.codBarra = codBarra;
+    }
+
     public Long getId() {
         return id;
     }
@@ -50,17 +61,6 @@ public class Produto  {
 
     public void setCodBarra(int codBarra) {
         this.codBarra = codBarra;
-    }
-
-    public Produto(){
-
-    }
-    
-    public Produto( String nome, String marca, double preco, int codBarra) {
-    	this.nome = nome;
-    	this.marca = marca;
-    	this.preco = preco;
-    	this.codBarra = codBarra;
     }
 
     

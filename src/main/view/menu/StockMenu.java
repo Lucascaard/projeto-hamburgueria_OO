@@ -5,6 +5,7 @@ import java.util.List;
 
 import main.controller.ProductController;
 import main.controller.StockController;
+import main.daos.ProdutoDAO;
 import main.model.Produto;
 import main.model.Stock;
 import main.util.*;
@@ -39,41 +40,89 @@ public class StockMenu extends Menu{
             }
         };
 
+        Command ShowProducts = new Command(){
+            public void exe(){
+                List<Produto> product = productControl.getProduct();
+                    if (product.isEmpty()) {
+                        Prompt.print(Message.ESTOQUE_VAZIO);
+                    } else {
+                        for(Produto item_product : product){
+                            Prompt.print(item_product.toString());
+                        }
+                    }
+            }
+        };
+
+        Command ShowStock = new Command(){
+            public void exe(){
+
+                Prompt.blankLine();
+                Prompt.print(Message.ESTOQUE_ATUAL);
+                Prompt.blankLine();
+                List<Stock> stock = stockControl.getStock();
+                if (stock.isEmpty()) {
+                    Prompt.print(Message.ESTOQUE_VAZIO);
+                } else {
+                    for(Stock item_stock : stock){
+                        Prompt.print(item_stock.toString());
+                    }
+                }
+            }
+        };
+
+
         adicionar(1, Message.CREATE, new Command(){
             public void exe(){
                 Prompt.separator();
                 Prompt.print(Message.MSG_CADASTRO_ESTOQUE);
                 Prompt.separator();
-                List<Produto> product = productControl.getProduct();
-                if (!product.isEmpty()){
-                    for(Produto item_product : product){
-                        Prompt.print(item_product.toString());
-                    }
-                }
+                ShowProducts.exe();
                 Prompt.separator();
                 Prompt.blankLine();
 
                 Long id = (long) Prompt.intReader(Message.INFORME_ID);
-                Long qnty = (long) Prompt.intReader(Message.INFORME_QUANTIDADE);
 
-                if(StockController.getInstance().search(id) != null){
+
+                //ProdutoDAO produtoDAO = new ProdutoDAO();
+                //Produto produto = produtoDAO.searchById(id);
+
+
+                Produto storedProduct = productControl.search(id);
+
+                if (storedProduct != null){
+
+                    Long qnty = (long) Prompt.intReader(Message.INFORME_QUANTIDADE);
+                    Stock newStock = new Stock(storedProduct, qnty);
+                    stockControl.create(newStock);
+
+                } else {
                     Prompt.separator();
                     Prompt.print(Message.ID_INVALIDA);
                     Prompt.separator();
                     Prompt.blankLine();
                     StockView.getInstance().show();
                 }
-                if(id != null){
 
-                    Produto newProduct = productControl.search(id);
+                // if(StockController.getInstance().search(id) != null){
+                //     Prompt.separator();
+                //     Prompt.print(Message.ID_INVALIDA);
+                //     Prompt.separator();
+                //     Prompt.blankLine();
+                //     StockView.getInstance().show();
+                // }
+                // if(id != null){
+                //     Long qnty = (long) Prompt.intReader(Message.INFORME_QUANTIDADE);
 
-                    Stock newStock = new Stock(id, newProduct, qnty);
-                    stockControl.create(newStock);
-                    // Atulizar código quando estiver pronto a parte de produto
-                }
+                //     Produto newProduct = productControl.search(id);
+
+                //     Stock newStock = new Stock(id, newProduct, qnty);
+                //     stockControl.create(newStock);
+                //     // Atulizar código quando estiver pronto a parte de produto
+                // }
 
                 Prompt.blankLine();
-                StockList.exe();
+                ShowStock.exe();
+                StockView.getInstance().show();
             }
         });
 
@@ -84,12 +133,7 @@ public class StockMenu extends Menu{
                 Prompt.blankLine();
                 Prompt.print(Message.UPDATE_ESTOQUE);
                 Prompt.separator();
-                List<Produto> product = productControl.getProduct();
-                if (!product.isEmpty()){
-                    for(Produto item_product : product){
-                        Prompt.print(item_product.toString());
-                    }
-                }
+                ShowStock.exe();
                 Prompt.separator();
                 Prompt.blankLine();
 
@@ -98,15 +142,7 @@ public class StockMenu extends Menu{
                 if(id > 0){
                     Stock stockUpdate = stockControl.search(id);
 
-                    if(stockUpdate != null){
-
-                            if (!product.isEmpty()){
-                                for(Produto item_product : product){
-                                    if(item_product.getId() == id){
-                                        Prompt.print(item_product.toString());
-                                    }
-                                }
-                            }                        
+                    if(stockUpdate != null){                     
 
                         Long qnty = (long) Prompt.intReader(Message.INFORME_QUANTIDADE);
 
@@ -118,7 +154,6 @@ public class StockMenu extends Menu{
                             Prompt.print(Message.ESTOQUE_ALTERADO);
                         }
                     } else {
-
                         Prompt.blankLine();
                         Prompt.print(Message.PRODUTO_EXISTENTE_ESTOQUE);
                     }
@@ -128,7 +163,8 @@ public class StockMenu extends Menu{
 
                 }
 
-                StockList.exe();
+                ShowStock.exe();
+                StockView.getInstance().show();
             }
         });
 
@@ -137,12 +173,7 @@ public class StockMenu extends Menu{
                 Prompt.blankLine();
                 Prompt.print(Message.EXCLUIR_ESTOQUE);
                 Prompt.separator();
-                List<Produto> product = productControl.getProduct();
-                if (!product.isEmpty()){
-                    for(Produto item_product : product){
-                        Prompt.print(item_product.toString());
-                    }
-                }
+                ShowStock.exe();
                 Prompt.separator();
                 Prompt.blankLine();
                 Long id = (long) Prompt.intReader(Message.INFORME_ID_EXCLUIR_ESTOQUE);
@@ -150,6 +181,7 @@ public class StockMenu extends Menu{
                 if(id > 0 && StockController.getInstance().ProductExists(id) != null){
 
                     stockControl.delete(id);
+
                     Prompt.blankLine();
                     Prompt.print(Message.ESTOQUE_EXCLUIDO);
                 } else {
@@ -159,7 +191,8 @@ public class StockMenu extends Menu{
                 Prompt.blankLine();
                 Prompt.pressEnter();
 
-                StockList.exe();
+                ShowStock.exe();
+                StockView.getInstance().show();
             }
         });
 
