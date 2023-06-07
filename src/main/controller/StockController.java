@@ -27,7 +27,7 @@ public class StockController {
     }
 
     public Stock search(Long id){
-        return dao.searchById(null);
+        return dao.searchById(id);
     }
 
     public void create(Stock product){

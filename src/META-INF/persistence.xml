@@ -28,6 +28,9 @@
       <property name="hibernate.show_sql" value="false" />
       <property name="hibernate.format_sql" value="false" />
 
+      <property name="hibernate.ejb.interceptor.level" value="WARN" />
+
+
     </properties>
   </persistence-unit>
 </persistence>

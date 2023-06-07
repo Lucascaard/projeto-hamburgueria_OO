@@ -72,5 +72,5 @@ public class Produto  {
         "Preço: " + getPreco() + "\n" +
         "Código de barra: " + getCodBarra();
     }
-    
+
 }

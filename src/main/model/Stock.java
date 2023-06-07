@@ -6,7 +6,7 @@ import javax.persistence.*;
 public class Stock {
 
     @Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	// @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @OneToOne
@@ -42,15 +42,14 @@ public class Stock {
 
     }
 
-    public Stock(Produto product, Long qnty) {
+    public Stock(Long id, Produto product, Long qnty) {
+        this.id = id;
         this.product = product;
         this.qnty = qnty;
     }
-
-
     
     @Override
     public String toString() {
-        return "ID: " + getId() +  "Produto: " + product + "\nQuantidade: " + qnty;
+        return "ID: " + getId() +  "\nProduto: " + product.getNome() + "\nQuantidade: " + qnty;
     }
 }
