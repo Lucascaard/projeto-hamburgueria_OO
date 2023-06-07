@@ -3,7 +3,6 @@ package main.model;
 import javax.persistence.*;
 
 @Entity
-@Inheritance(strategy = InheritanceType.JOINED)
 public class Produto  {
     @Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
