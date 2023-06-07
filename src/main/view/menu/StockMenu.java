@@ -42,22 +42,22 @@ public class StockMenu extends Menu{
                 Prompt.separator();
                 Prompt.blankLine();
                 Long id = (long) Prompt.intReader(Message.INFORME_ID);
-                // Long qnty = (long) Prompt.intReader(Message.INFORME_QUANTIDADE);
+           
+                Long qnty = (long) Prompt.intReader(Message.INFORME_QUANTIDADE);
 
-                if(StockController.getInstance().ProductExists(id) != null){
-                    Prompt.separator();
-                    Prompt.print(Message.JA_EXISTE);
-                    Prompt.separator();
-                    Prompt.blankLine();
-                    StockView.getInstance().show();
-                }
 
-                if(id != null){
-
-                    // Stock newStock = new Stock(id, null, qnty);
-                    // control.create(newStock);
-                    // Atulizar código quando estiver pronto a parte de produto
-                }
+                // if(StockController.getInstance().ProductExists(id) != null){
+                //     Prompt.separator();
+                //     Prompt.print(Message.JA_EXISTE);
+                //     Prompt.separator();
+                //     Prompt.blankLine();
+                //     StockView.getInstance().show();
+                // }
+                // if(id != null){
+                //     // Stock newStock = new Stock(id, null, qnty);
+                //     // control.create(newStock);
+                //     // Atulizar código quando estiver pronto a parte de produto
+                // }
 
                 Prompt.blankLine();
                 StockList.exe();
