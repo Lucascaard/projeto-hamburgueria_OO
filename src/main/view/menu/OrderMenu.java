@@ -35,7 +35,7 @@ public class OrderMenu extends Menu {
                 }
                 Prompt.blankLine();
                 Prompt.pressEnter();
-                ClientView.getInstance().show();
+                OrderView.getInstance().show()oq
             }
         };
 
@@ -74,7 +74,7 @@ public class OrderMenu extends Menu {
 
                             stockControl.update(stock);
 
-                            Order order = new Order(client, worker, idpedido, quantidade);
+                           Order order = new Order(client, worker, idpedido, quantidade);
         
                             control.create(order);
         
