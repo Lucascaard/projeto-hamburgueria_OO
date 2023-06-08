@@ -44,7 +44,19 @@ public class MainMenu extends Menu {
             }
         });
 
-        adicionar(6, Message.FINALIZAR_PROGRAMA, new Command(){
+        adicionar(6, Message.MENU_PEDIDO, new Command(){
+            public void exe(){
+                ProductView.getInstance().show();
+            }
+        });
+
+        adicionar(7, Message.MENU_GERENTE, new Command(){
+            public void exe(){
+                ProductView.getInstance().show();
+            }
+        });
+
+        adicionar(8, Message.FINALIZAR_PROGRAMA, new Command(){
             public void exe(){
                 Prompt.print(Message.FINALIZADO);
             }

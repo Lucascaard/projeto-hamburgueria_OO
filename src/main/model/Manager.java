@@ -1,12 +1,12 @@
 package main.model;
 import java.time.LocalDate;
 
-public class Gerente extends Pessoa {
+public class Manager extends Pessoa {
 
 	private LocalDate dataAdmissao;
 	private double salario;
 	
-	public Gerente(String nome, Integer CPF, String sexo, LocalDate dataAdmissao, Double salario) {
+	public Manager(String nome, Integer CPF, String sexo, LocalDate dataAdmissao, Double salario) {
 		super(nome, CPF, sexo);
 		this.dataAdmissao = dataAdmissao;
 		this.salario = salario;
