@@ -139,7 +139,7 @@ public class WorkerMenu extends Menu {
 
         adicionar(5, Message.VOLTAR, new Command() {
             public void exe() {
-                WorkerView.getInstance().show(); // chamando a tela principal
+                MainView.getInstance().show(); // chamando a tela principal
             }
         });
 

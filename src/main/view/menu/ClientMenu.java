@@ -25,9 +25,12 @@ public class ClientMenu extends Menu {
 					Prompt.print(Message.NAO_HA_CLIENTES); 
 				} else {
 					for (Client customer : client) {
+                        Prompt.separator();
 						Prompt.print(customer.toString());
+                        
 					}
 				}
+                Prompt.separator();
 				Prompt.blankLine();
 				Prompt.pressEnter();
 				ClientView.getInstance().show();
@@ -114,8 +117,9 @@ public class ClientMenu extends Menu {
 				
                 if(id > 0) {
                     control.delete(id);
-                    Prompt.blankLine();
+                    Prompt.separator();
                     Prompt.print(Message.EXCLUIDO_COM_SUCESSO);
+                    Prompt.separator();
                     Prompt.blankLine();
                     Prompt.pressEnter();
                 }

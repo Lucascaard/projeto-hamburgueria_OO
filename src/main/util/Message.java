@@ -4,7 +4,7 @@ public interface Message {
 
 
     //NOVAS MSG
-    final static String INFORM_ID = "INFORME O ID";
+    final static String INFORM_ID = "INFORME O ID:";
 
     //CRUD
     final static String CREATE = "CADASTRAR ";
@@ -23,9 +23,9 @@ public interface Message {
     final static String FINALIZAR_PROGRAMA = "FINALIZAR PROGRAMA";
 
     //LOGIN
-    final static String TELA_LOGIN = "                   TELA DE LOGIN";
-    final static String MSG_INFORME_LOGIN = "INFORME O LOGIN: ";
-    final static String MSG_INFORME_SENHA = "INFORME A SENHA: ";
+    final static String TELA_LOGIN = "               TELA DE LOGIN";
+    final static String MSG_INFORME_LOGIN = "INFORME O LOGIN: (login)";
+    final static String MSG_INFORME_SENHA = "INFORME A SENHA: (senha)";
     final static String MSG_LOGIN_OR_SENHA_INVALID = "LOGIN OU SENHA INVALIDO, TENTE NOVAMENTE!";
 
     //CADASTROS
@@ -166,6 +166,22 @@ public interface Message {
     final static String ERRO_QUANTIDADE_INSUFICIENTE = "A QUANTIDADE DO ESTOQUE ESTA INSUFICIENTE";
     final static String GERENTE_CADASTRADO = "GERENTE CADASTRADO COM SUCESSO";
     
-    
+    //PEDIDO
+    final static String MENU_PEDIDO = "MENU PEDIDO";
+    final static String MSG_CADASTRO_PEDIDO = "CADASTRO DE PEDIDOS";
+    final static String LISTA_DE_PEDIDOS = "LISTA DE PEDIDOS";
+    final static String NAO_HA_PEDIDOS = "NÃO EXISTEM PEDIDOS CADASTRADOS";
+    final static String UP_PEDIDO = "ALTERAR PEDIDO";
+    final static String INFORME_ID_PEDIDO = "INFORME O ID DO PEDIDO";
+    final static String PEDIDO_JA_EXISTE = "JÁ EXISTE UM PEDIDO COM ESSE ID";
+    final static String PEDIDO_ALTERADO_COM_SUCESSO = "PEDIDO ALTERADO COM SUCESSO";
+    final static String INFORME_PEDIDO_QUANTIDADE = "INFORME A QUANTIDADE DO PEDIDO";
+    final static String PEDIDO_NAO_EXISTE = "O PEDIDO NÃO EXISTE";
+    final static String INFORME_CLIENTE = "INFORME O NOME DO(A) CLIENTE";
+    final static String INFORME_ATENDENTE = "INFORME O NOME DO(A) ATENDENTE";
+    final static String PEDIDO_CADASTRADO = "PEDIDO CADASTRADO COM SUCESSO";
+    final static String DELETAR_PEDIDO = "DELETAR PEDIDO";
+    final static String PEDIDO_EXCLUIDO_COM_SUCESSO = "PEDIDO EXCLUIDO COM SUCESSO";
+    final static String PEDIDO_NAO_ENCONTRADO = "PEDIDO NAO ENCONTRADO";
 
 }

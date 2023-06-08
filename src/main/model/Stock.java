@@ -6,14 +6,26 @@ import javax.persistence.*;
 public class Stock {
 
     @Id
-	// @GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @OneToOne
     @JoinColumn(name="id_Produto")
     private Produto product;
     private Long qnty;
+   
+    //Construtores
+    public Stock(){
 
+    }
+
+    public Stock(Produto product, Long qnty) {        
+        this.product = product;
+        this.qnty = qnty;
+    }
+    
+
+    //getters e setters
     public Long getId() {
         return id;
     }
@@ -30,6 +42,7 @@ public class Stock {
         this.product = product;
     }
 
+
     public Long getQnty() {
         return qnty;
     }
@@ -38,16 +51,6 @@ public class Stock {
         this.qnty = qnty;
     }
 
-    public Stock(){
-
-    }
-
-    public Stock(Long id, Produto product, Long qnty) {
-        this.id = id;
-        this.product = product;
-        this.qnty = qnty;
-    }
-    
     @Override
     public String toString() {
         return "ID: " + getId() +  "\nProduto: " + product.getNome() + "\nQuantidade: " + qnty;

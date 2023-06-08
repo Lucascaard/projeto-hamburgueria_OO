@@ -1,71 +1,80 @@
 package main.model;
 
-import javax.persistence.Entity;
+import java.time.LocalDateTime;
+
+import javax.persistence.*;
 
 @Entity
 public class Order {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long idpedido;
+    private LocalDateTime dataPedido;
+    private String cliente;
+    private String atendente;
+    private Integer quantidade;
+    // private Estoque produto;
 
-		private Client cliente;
-		private Worker atendente;
-		private Long idpedido;
-		private Long quantidade;
-		// private Estoque produto;
-		
-		// Construtor
-		public Order(){
-			
-		}
-		
-		public Order(Client cliente, Worker atendente, Long idpedido, Long quantidade) {
-			this.cliente = cliente;
-			this.atendente = atendente;
-			this.idpedido = idpedido;
-			this.quantidade = quantidade;
-		}
+    // GETTERS e SETTERS
 
+    // ID do pedido
+    public long getidpedido() {
+        return idpedido;
+    }
 
-		//GETTERS e SETTERS
+    public Order(LocalDateTime dataPedido, String cliente, String atendente, Integer quantidade) {
+        this.dataPedido = dataPedido;
+        this.cliente = cliente;
+        this.atendente = atendente;
+        this.quantidade = quantidade;
+    }
 
-		//cliente
-		public void setCliente( Client clienteExterno ) {
-			this.cliente = clienteExterno;
-		}
-		
-		public Client getCliente() {
-			return cliente;
-		}
-		
-		//atendente
-		public void setAtendente( Worker atendenteExterno ) {
-			this.atendente = atendenteExterno;
-		}
-		
-		public Worker getAtendente() {
-			return atendente;
-		}
+    // dataPedido
+    public void setDataPedido(LocalDateTime dataPedido) {
+        this.dataPedido = dataPedido;
+    }
 
-		//ID do pedido
-		public Long getIdpedido() {
-			return this.idpedido;
-		}
+    public LocalDateTime getDataPedido() {
+        return dataPedido;
+    }
 
-		public void setIdpedido(Long idpedido) {
-			this.idpedido = idpedido;
-		}
+    // cliente
+    public void setCliente(String cliente) {
+        this.cliente = cliente;
+    }
 
-		//Quantidade
-		public Long getQuantidade() {
-			return this.quantidade;
-		}
+    public String getCliente() {
+        return cliente;
+    }
 
-		public void setQuantidade(Long quantidade) {
-			this.quantidade = quantidade;
-	}
+    // atendente
+    public void setAtendente(String atendente) {
+        this.atendente = atendente;
+    }
 
+    public String getAtendente() {
+        return atendente;
+    }
 
-		
-		@Override
-		public String toString() {
-			return super.toString();
-		}
+    // Quantidade
+    public Integer getQuantidade() {
+        return this.quantidade;
+    }
+
+    public void setQuantidade(Integer quantidade) {
+        this.quantidade = quantidade;
+    }
+
+    public Order(){
+
+    }
+
+    @Override
+    public String toString() {
+        return "id: " + getidpedido() + "\n" +
+        "Data: " + getDataPedido() + "\n" + 
+        "Cliente: " + getCliente() + "\n" + 
+        "Atendente: " + getAtendente() + "\n" +
+        "Quantidade: " + getQuantidade();
+    }
 }

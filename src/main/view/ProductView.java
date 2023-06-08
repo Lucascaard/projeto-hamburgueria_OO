@@ -13,7 +13,6 @@ public class ProductView extends View{
 
     public ProductView(String title) {
         super(title);
-        //TODO Auto-generated constructor stub
     }
     
     public static synchronized View getInstance() {

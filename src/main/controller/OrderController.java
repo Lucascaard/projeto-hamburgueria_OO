@@ -6,7 +6,6 @@ import main.model.Order;
 import java.util.List;
 
 public class OrderController {
-    
     private static OrderController instance;
 	private DAO<Order> dao = new OrderDAO();
 

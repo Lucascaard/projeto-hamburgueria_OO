@@ -24,7 +24,7 @@ public class Prompt {
 
 		// Método para imprimir um separador no console
 		public static void separator() {
-			print("---------------------------------------------------"); // imprime o separador no console
+			print("-------------------------------------------"); // imprime o separador no console
 		}
 
 		// Método para imprimir uma linha em branco no console
