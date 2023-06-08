@@ -13,19 +13,30 @@ public class Stock {
     @JoinColumn(name="id_Produto")
     private Produto product;
     private Long qnty;
+    private String name;
    
+    
     //Construtores
     public Stock(){
-
-    }
-
-    public Stock(Produto product, Long qnty) {        
-        this.product = product;
-        this.qnty = qnty;
+        
     }
     
-
+    public Stock(Produto product, Long qnty, String name) {        
+        this.product = product;
+        this.qnty = qnty;
+        this.name = name;
+    }
+    
+    
     //getters e setters
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public Long getId() {
         return id;
     }
@@ -53,6 +64,6 @@ public class Stock {
 
     @Override
     public String toString() {
-        return "ID: " + getId() +  "\nProduto: " + product.getNome() + "\nQuantidade: " + qnty;
+        return "\nID: " + getId() +  "\nProduto: " + product.getNome() + "\nQuantidade: " + qnty;
     }
 }

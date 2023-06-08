@@ -127,6 +127,7 @@ public interface Message {
     final static String ALTERAR_OUTRO = "DESEJA ATUALIZAR OUTRO PRODUTO?";
     final static String DELETAR_OUTRO = "DESEJA DELETAR OUTRO PRODUTO?";
     final static String ESTOQUE_ATUAL = "ESTOQUE ATUAL";
+    final static String QNTD_INVALIDA = "QUANTIDADE INVÁLIDA";
 
     //GERENTE
     final static String MENU_GERENTE = "MENU GERENTE";
