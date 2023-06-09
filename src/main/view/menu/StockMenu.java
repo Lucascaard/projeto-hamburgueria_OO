@@ -3,10 +3,10 @@ package main.view.menu;
 import java.util.ArrayList;
 import java.util.List;
 
-import main.controller.ProductController;
+import main.controller.CardapioController;
 import main.controller.StockController;
 //import main.daos.ProdutoDAO;
-import main.model.Produto;
+import main.model.Cardapio;
 import main.model.Stock;
 import main.util.*;
 import main.view.Command;
@@ -17,7 +17,7 @@ public class StockMenu extends Menu{
     
     private List<ItemMenu> itens = new ArrayList<>();
     private StockController stockControl = StockController.getInstance();
-    private ProductController productControl = ProductController.getInstance();
+    private CardapioController cardapioControl = CardapioController.getInstance();
 
     public StockMenu(){
 
@@ -42,11 +42,11 @@ public class StockMenu extends Menu{
 
         Command ShowProducts = new Command(){
             public void exe(){
-                List<Produto> product = productControl.getProduct();
+                List<Cardapio> product = cardapioControl.getProduct();
                     if (product.isEmpty()) {
                         Prompt.print(Message.ESTOQUE_VAZIO);
                     } else {
-                        for(Produto item_product : product){
+                        for(Cardapio item_product : product){
                             Prompt.print(item_product.toString());
                         }
                     }
@@ -87,7 +87,7 @@ public class StockMenu extends Menu{
                 //Produto produto = produtoDAO.searchById(id);
 
 
-                Produto storedProduct = productControl.search(id);
+                Cardapio storedProduct = cardapioControl.search(id);
 
                 if (storedProduct != null){
 

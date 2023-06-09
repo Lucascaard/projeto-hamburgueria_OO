@@ -7,23 +7,23 @@ import main.view.*;
 import main.controller.*;
 import main.model.*;
 
-public class ProductMenu extends Menu{
+public class CardapioMenu extends Menu{
     
     private List<ItemMenu> itens = new ArrayList<>();
-    private ProductController control = ProductController.getInstance();
+    private CardapioController control = CardapioController.getInstance();
 
-    public ProductMenu(){
+    public CardapioMenu(){
 
         Command ProductList = new Command() {
             public void exe(){
                 Prompt.blankLine();
-                Prompt.print(Message.LISTA_DE_PRODUTOS);
+                Prompt.print(Message.CARDAPIO);
 
-                List<Produto> produto = control.getProduct();
+                List<Cardapio> produto = control.getProduct();
                 if(produto.isEmpty()){
                     Prompt.print(Message.NAO_HA_PRODUTOS);
                 }else{
-                    for (Produto product : produto){
+                    for (Cardapio product : produto){
                         Prompt.print(product.toString());   
                     }
                 }
@@ -36,7 +36,7 @@ public class ProductMenu extends Menu{
         adicionar(1, Message.CREATE, new Command() {
             public void exe(){
                 Prompt.separator();
-                Prompt.print(Message.MSG_CADASTRO_PRODUTO);
+                Prompt.print(Message.MSG_CADASTRO_CARDAPIO);
                 Prompt.separator();
                 //Integer id = Prompt.intReader(Message.INFORME_ID);
                 String nome = Prompt.lineReader(Message.INFORME_NOME_PRODUTO);
@@ -59,7 +59,7 @@ public class ProductMenu extends Menu{
                 // Prompt.blankLine();
 
                 if(!nome.isEmpty()){
-                    Produto newProduct = new Produto(nome, marca, preco, codBarra);
+                    Cardapio newProduct = new Cardapio(nome, marca, preco, codBarra);
                     control.create(newProduct);
                 }
                 Prompt.blankLine();
@@ -72,10 +72,10 @@ public class ProductMenu extends Menu{
         adicionar(3, Message.UPDATE, new Command(){
             public void exe(){
                 Prompt.blankLine();
-                Prompt.print(Message.UPDATE_PRODUTO);
+                Prompt.print(Message.UPDATE_CARDAPIO);
                 Long id = (long) Prompt.intReader(Message.INFORME_ID);
                 if(id > 0){
-                    Produto ProductUpdate = control.search(id);
+                    Cardapio ProductUpdate = control.search(id);
 
                     if(ProductUpdate != null){
                         String nome = Prompt.lineReader(Message.INFORME_NOME_PRODUTO);
@@ -91,7 +91,7 @@ public class ProductMenu extends Menu{
 
                             control.update(ProductUpdate);
                             Prompt.blankLine();
-                            Prompt.print(Message.PRODUTO_ALTERADO_COM_SUCESSO);
+                            Prompt.print(Message.CARDAPIO_ALTERADO_COM_SUCESSO);
                         }
                     
                     }
