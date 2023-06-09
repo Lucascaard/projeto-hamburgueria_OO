@@ -80,7 +80,7 @@ public class StockMenu extends Menu{
                 Prompt.separator();
                 Prompt.blankLine();
 
-                Long id = (long) Prompt.intReader(Message.INFORME_ID);
+                Long id = (long) Prompt.intReader(Message.INFORME_ID_CADASTRO);
 
 
                 //ProdutoDAO produtoDAO = new ProdutoDAO();
@@ -92,7 +92,7 @@ public class StockMenu extends Menu{
                 if (storedProduct != null){
 
                     Long qnty = (long) Prompt.intReader(Message.INFORME_QUANTIDADE);
-                    Stock newStock = new Stock(storedProduct, qnty);
+                    Stock newStock = new Stock(storedProduct, qnty, storedProduct.getNome());
                     stockControl.create(newStock);
 
                 } else {
@@ -137,7 +137,7 @@ public class StockMenu extends Menu{
                 Prompt.separator();
                 Prompt.blankLine();
 
-                Long id = (long) Prompt.intReader(Message.INFORME_ID);
+                Long id = (long) Prompt.intReader(Message.INFORME_ID_ALTERAR);
                 
                 if(id > 0){
                     Stock stockUpdate = stockControl.search(id);
@@ -152,10 +152,12 @@ public class StockMenu extends Menu{
                             stockControl.update(stockUpdate);
                             Prompt.blankLine();
                             Prompt.print(Message.ESTOQUE_ALTERADO);
+                        } else {
+                            Prompt.print(Message.QNTD_INVALIDA);
                         }
                     } else {
                         Prompt.blankLine();
-                        Prompt.print(Message.PRODUTO_EXISTENTE_ESTOQUE);
+                        Prompt.print(Message.ID_INVALIDA);
                     }
 
                 Prompt.blankLine();
