@@ -37,7 +37,7 @@ public class MainMenu extends Menu {
             }
         });
 
-        adicionar(5, Message.MENU_CARDAPIO, new Command(){
+        adicionar(5, Message.MENU_PRODUTO, new Command(){
             public void exe(){
                 ProductView.getInstance().show();
             }

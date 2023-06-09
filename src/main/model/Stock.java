@@ -11,7 +11,7 @@ public class Stock {
 
     @OneToOne
     @JoinColumn(name="id_Produto")
-    private Cardapio product;
+    private Produto product;
     private Long qnty;
     private String name;
    
@@ -21,7 +21,7 @@ public class Stock {
         
     }
     
-    public Stock(Cardapio product, Long qnty, String name) {        
+    public Stock(Produto product, Long qnty, String name) {        
         this.product = product;
         this.qnty = qnty;
         this.name = name;
@@ -45,11 +45,11 @@ public class Stock {
         this.id = id;
     }
 
-    public Cardapio getProduct() {
+    public Produto getProduct() {
         return product;
     }
 
-    public void setProduct(Cardapio product) {
+    public void setProduct(Produto product) {
         this.product = product;
     }
 

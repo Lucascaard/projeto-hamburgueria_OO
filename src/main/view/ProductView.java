@@ -8,7 +8,7 @@ public class ProductView extends View{
     private static View instance;
 
     public ProductView(){
-        super(Message.MENU_CARDAPIO, new CardapioMenu());
+        super(Message.MENU_PRODUTO, new ProductMenu());
     }
 
     public ProductView(String title) {

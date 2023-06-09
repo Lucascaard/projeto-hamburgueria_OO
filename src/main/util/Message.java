@@ -82,26 +82,26 @@ public interface Message {
     final static String FUNCIONARIO_CADASTRADO = "FUNCIONARIO CADASTRADO COM SUCESSO";
     final static String JA_EXISTE_FUNCIONARIO = "JÁ EXISTE UM FUNCIONÁRIO CADASTRADO COM ESSE CPF";
 
-    //CARDAPIO E PRODUTOS
-    final static String MSG_CADASTRO_CARDAPIO = "CADASTRO DE PRODUTOS NO CARDÁPIO";
-    final static String MENU_CARDAPIO = "CARDÁPIO";
-    final static String CARDAPIO = "CARDÁPIO";
-    final static String NOVO_PRODUTO = "DESEJA CADASTRAR UM NOVO PRODUTO AO CARDÁPIO?";
+    //PRODUTO
+    final static String MSG_CADASTRO_PRODUTO = "CADASTRO DE PRODUTOS";
+    final static String MENU_PRODUTO = "MENU PRODUTOS";
+    final static String LISTA_DE_PRODUTOS = "LISTA DE PRODUTOS";
+    final static String NOVO_PRODUTO = "DESEJA CADASTRAR UM NOVO PRODUTO?";
     final static String INFORME_NOME_PRODUTO = "NOME DO PRODUTO:";
     final static String INFORME_MARCA = "MARCA:";
     final static String INFORME_PRECO = "PREÇO:  Ex(4.99)";
     final static String INFORME_CODBARRA = "CÓDIGO DE BARRAS:";
     final static String NAO_HA_PRODUTOS = "NÃO EXISTEM PRODUTOS CADASTRADOS";
-    final static String UPDATE_CARDAPIO = "ALTERAR PRODUTO";
+    final static String UPDATE_PRODUTO = "ALTERAR PRODUTO";
     final static String NOME_ORIGINAL_PRODUTO = "INFORME O NOME DO PRODUTO QUE DESEJA ALTERAR: ";
     final static String NOME_EXCLUIR_PRODUTO = "INFORME O NOME DO PRODUTO QUE DESEJA EXCLUIR: ";
     final static String NOVOS_DADOS_PRODUTO = "INSIRA OS NOVOS DADOS DESTE PRODUTO";
-    final static String CARDAPIO_ALTERADO_COM_SUCESSO = "CARDÁPIO ALTERADO COM SUCESSO";
+    final static String PRODUTO_ALTERADO_COM_SUCESSO = "PRODUTO ALTERADO COM SUCESSO";
     final static String INFORME_ID = "INFORME O ID DO PRODUTO: ";
     final static String ID_JA_EXISTE = "ID JÁ EXISTE";
     final static String MSG_EXCLUSAO_PRODUTO = "EXCLUSÃO DE PRODUTOS";
     final static String PRODUTO_EXCLUIDO_SUCESSO = "PRODUTO EXCLUÍDO COM SUCESSO";
-    final static String PRODUTO_NAO_ENCONTRADO = "PRODUTO NÃO ENCONTRADO NO CARDÁPIO";
+    final static String PRODUTO_NAO_ENCONTRADO = "PRODUTO NÃO ENCONTRADO";
     
     //ESTOQUE
     final static String MENU_ESTOQUE = "MENU ESTOQUE";

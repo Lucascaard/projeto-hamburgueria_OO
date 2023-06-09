@@ -23,14 +23,14 @@ public class Order {
 
     @ManyToOne
     @JoinColumn( name="produto_id")
-	private Cardapio produto; 
+	private Produto produto; 
 	private Integer qnty;
 
 	public Order(){
 
 	}
 
-	public Order(Client client, Worker worker, Cardapio product, Integer quantidade) {
+	public Order(Client client, Worker worker, Produto product, Integer quantidade) {
         this.client = client;
         this.worker = worker;
 		this.produto = product;
@@ -77,11 +77,11 @@ public class Order {
 		this.qnty = quantidade;
 	}
 
-	public Cardapio getProduto() {
+	public Produto getProduto() {
 		return produto;
 	}
 
-	public void setProduto(Cardapio produto) {
+	public void setProduto(Produto produto) {
 		this.produto = produto;
 	}
 

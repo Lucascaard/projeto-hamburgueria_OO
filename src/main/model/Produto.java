@@ -3,7 +3,7 @@ package main.model;
 import javax.persistence.*;
 
 @Entity
-public class Cardapio {
+public class Produto  {
     @Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -12,11 +12,11 @@ public class Cardapio {
     private double preco;
     private int codBarra;
 
-    public Cardapio(){
+    public Produto(){
 
     }
     
-    public Cardapio( String nome, String marca, double preco, int codBarra) {
+    public Produto( String nome, String marca, double preco, int codBarra) {
     	this.nome = nome;
     	this.marca = marca;
     	this.preco = preco;
