@@ -29,7 +29,7 @@ public class CardapioMenu extends Menu{
                 }
                 Prompt.blankLine();
                 Prompt.pressEnter();
-                ProductView.getInstance().show();
+                CardapioView.getInstance().show();
             }
         };
 

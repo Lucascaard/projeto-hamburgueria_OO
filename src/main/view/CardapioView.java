@@ -3,21 +3,21 @@ package main.view;
 import main.util.Message;
 import main.view.menu.*;
 
-public class ProductView extends View{
+public class CardapioView extends View{
 
     private static View instance;
 
-    public ProductView(){
+    public CardapioView(){
         super(Message.MENU_CARDAPIO, new CardapioMenu());
     }
 
-    public ProductView(String title) {
+    public CardapioView(String title) {
         super(title);
     }
     
     public static synchronized View getInstance() {
         if (instance == null) {
-            instance = new ProductView();
+            instance = new CardapioView();
         }
         return instance;
     }

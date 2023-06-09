@@ -39,7 +39,7 @@ public class MainMenu extends Menu {
 
         adicionar(5, Message.MENU_CARDAPIO, new Command(){
             public void exe(){
-                ProductView.getInstance().show();
+                CardapioView.getInstance().show();
             }
         });
 
