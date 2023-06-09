@@ -21,7 +21,7 @@
       <property name="javax.persistence.jdbc.user" value="root" />
       
       <!--SENHA -->
-      <property name="javax.persistence.jdbc.password" value="vitor1394" />
+      <property name="javax.persistence.jdbc.password" value="" />
       <property name="hibernate.hbm2ddl.auto" value="update"/>
       
       <!-- Desabilitando logs do Hibernate -->
