@@ -11,21 +11,19 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-	@Temporal(TemporalType.DATE)
     private LocalDateTime dataPedido = LocalDateTime.now(); //sai do construtor
 
-	@OneToOne
-	@JoinColumn(name="cliente")
+    @ManyToOne
+    @JoinColumn(name = "cliente_id")
     private Client client;
 
-	@OneToOne
-	@JoinColumn(name="worker")
+    @ManyToOne
+    @JoinColumn( name="worker_id")
     private Worker worker;
 
-	@OneToMany
-	@JoinColumn(name="lanche")
-	private Produto produto; //lista de lanches
-
+    @ManyToOne
+    @JoinColumn( name="produto_id")
+	private Produto produto; 
 	private Integer qnty;
 
 	public Order(){

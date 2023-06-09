@@ -21,7 +21,6 @@ public class MainMenu extends Menu {
 
         adicionar(2, Message.MENU_FUNCIONARIO, new Command(){
             public void exe(){
-                //Chama a View de Funcionario
                 WorkerView.getInstance().show();
             }
         });
@@ -34,7 +33,7 @@ public class MainMenu extends Menu {
 
         adicionar(4, Message.MENU_GERENTE, new Command(){
             public void exe(){
-                //Chama a View de Gerente
+                System.out.println("Aqui vai o menu de Gerente");
             }
         });
 
@@ -46,17 +45,11 @@ public class MainMenu extends Menu {
 
         adicionar(6, Message.MENU_PEDIDO, new Command(){
             public void exe(){
-                ProductView.getInstance().show();
+                System.out.println("aqui vai o menu de pedidos");
             }
         });
 
-        adicionar(7, Message.MENU_GERENTE, new Command(){
-            public void exe(){
-                ProductView.getInstance().show();
-            }
-        });
-
-        adicionar(8, Message.FINALIZAR_PROGRAMA, new Command(){
+        adicionar(7, Message.FINALIZAR_PROGRAMA, new Command(){
             public void exe(){
                 Prompt.print(Message.FINALIZADO);
             }

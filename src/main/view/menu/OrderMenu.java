@@ -5,18 +5,18 @@ import java.util.List;
 import main.util.*;
 import main.view.*;
 import main.controller.*;
-import main.daos.ProdutoDAO;
+import main.daos.*;
 import main.model.*;
 
 
 public class OrderMenu extends Menu {
-    
     private List<ItemMenu> itens = new ArrayList<>();
+
     private OrderController control = OrderController.getInstance();
     private ClientController clientControl = ClientController.getInstance();
     private WorkerController workerControl = WorkerController.getInstance();
-    private ProductController productControl = ProductController.getInstance();
-    private StockController stockControl = StockController.getInstance();
+    // private ProductController productControl = ProductController.getInstance();
+    // private StockController stockControl = StockController.getInstance();
 
     public OrderMenu() {
 
@@ -35,7 +35,7 @@ public class OrderMenu extends Menu {
                 }
                 Prompt.blankLine();
                 Prompt.pressEnter();
-                OrderView.getInstance().show()oq
+                OrderView.getInstance().show();
             }
         };
 
@@ -45,19 +45,30 @@ public class OrderMenu extends Menu {
                 Prompt.print(Message.MSG_CADASTRO_PEDIDO);
                 Prompt.separator();
                 Prompt.blankLine();
-                Long CPFcliente = (long) Prompt.intReader(Message.INFORME_CPF);
-                Long CPFatendente = (long) Prompt.intReader(Message.INFORME_ATENDENTE);
-                Long idpedido = (long) Prompt.intReader(Message.INFORME_ID_PEDIDO);
-                Long quantidade = (long) Prompt.intReader(Message.INFORME_PEDIDO_QUANTIDADE);
-                if (OrderController.getInstance().orderExists(idpedido) != null) {
-                    Prompt.separator();
-                    Prompt.print(Message.JA_EXISTE_PEDIDO);
-                    Prompt.separator();
-                    Prompt.blankLine();
-                    ClientView.getInstance().show();
-                } else {
+                Long  idClient = (long) Prompt.intReader(Message.INFORME_CPF); //mudar para informe id
+                if(ClientController.getInstance().clientExists(idClient) != null){
+                    
+                    Long idWorker = (long) Prompt.intReader(Message.INFORME_ATENDENTE); // mudar para informe id do worker
+                    if(WorkerController.getInstance().workerExists(idWorker) != null){
+                        Long qnty = (long) Prompt.intReader(Message.INFORME_PEDIDO_QUANTIDADE); //ok
+                    } else{
+                        System.out.println("Funcionario não encontrado");
+                        OrderView.getInstance().show();
+                    }
 
-                    Client client = new Client();
+                } else{
+                    System.out.println("Cliente não encontrado");
+                    OrderView.getInstance().show();
+                }
+                //FALTA FAZER
+                /*
+                 * Listar cardapio enumerado para que o usuario escolha uma das opções
+                 * Ler a opção do usuario e salvar em uma variavel
+                 * Fazer baixa no estoque do item que foi vendido usando o controller do estoque
+                 * Fazer soma dos preços dos itens e mostrar no final o valor total
+                 */
+
+                    /*Client client = new Client();
                     Worker worker = new Worker();
                     Produto product = new Produto();
                     Stock stock = new Stock();
@@ -69,12 +80,12 @@ public class OrderMenu extends Menu {
 
                     if (client != null && worker != null && product != null && stock != null) {
 
-                        if (stock.getQnty() >= quantidade) {
-                            stock.setQnty(stock.getQnty() - quantidade);
+                        if (stock.getQnty() >= qnty) {
+                            stock.setQnty(stock.getQnty() - qnty);
 
                             stockControl.update(stock);
 
-                           Order order = new Order(client, worker, idpedido, quantidade);
+                           Order order = new Order(client, worker, idpedido, qnty);
         
                             control.create(order);
         
@@ -94,10 +105,10 @@ public class OrderMenu extends Menu {
                         Prompt.print(Message.ERRO_AO_CRIAR_PEDIDO);
                     }
 
-                }
+                
 
                 Prompt.blankLine();
-                OrderList.exe();
+                OrderList.exe();*/
             }
         });
 

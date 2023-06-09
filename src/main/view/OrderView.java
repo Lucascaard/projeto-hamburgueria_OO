@@ -5,7 +5,7 @@ import main.view.menu.*;
 
 public class OrderView extends View{
     
-    private static OrderView instance;
+    private static View instance;
 
     public OrderView() {
         super(Message.MENU_PEDIDO, new OrderMenu());
@@ -21,5 +21,4 @@ public class OrderView extends View{
 		}
 		return instance;
 	}
-    
 }
