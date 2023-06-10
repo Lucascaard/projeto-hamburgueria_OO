@@ -40,8 +40,8 @@ public class WorkerController {
         dao.delete(id);
     }
 
-    public Worker workerExists(Long CPF){
-        return dao.searchById(CPF);
+    public Worker workerExists(Long id){
+        return dao.searchById(id);
     }
 
 }

@@ -45,7 +45,7 @@ public class MainMenu extends Menu {
 
         adicionar(6, Message.MENU_PEDIDO, new Command(){
             public void exe(){
-                System.out.println("aqui vai o menu de pedidos");
+                FoodOrderView.getInstance().show();
             }
         });
 

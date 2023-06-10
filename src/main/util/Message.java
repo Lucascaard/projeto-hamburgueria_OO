@@ -85,7 +85,7 @@ public interface Message {
     //CARDAPIO E PRODUTOS
     final static String MSG_CADASTRO_CARDAPIO = "CADASTRO DE PRODUTOS NO CARDÁPIO";
     final static String MENU_CARDAPIO = "CARDÁPIO";
-    final static String CARDAPIO = "CARDÁPIO";
+    final static String CARDAPIO_VAZIO = "CARDÁPIO VAZIO";
     final static String NOVO_PRODUTO = "DESEJA CADASTRAR UM NOVO PRODUTO AO CARDÁPIO?";
     final static String INFORME_NOME_PRODUTO = "NOME DO PRODUTO:";
     final static String INFORME_MARCA = "MARCA:";
@@ -158,8 +158,8 @@ public interface Message {
     final static String INFORME_PEDIDO_QUANTIDADE = "INFORME A QUANTIDADE DO PEDIDO";
     final static String PEDIDO_NAO_EXISTE = "O PEDIDO NÃO EXISTE";
     final static String PEDIDO_NAO_ENCONTRADO = "O PEDIDO NÃO FOI ENCONTRADO";
-    final static String INFORME_CLIENTE = "INFORME O NOME DO CLIENTE";
-    final static String INFORME_ATENDENTE = "INFORME O NOME DO ATENDENTE";
+    final static String INFORME_CLIENTE = "INFORME O ID DO CLIENTE";
+    final static String INFORME_ATENDENTE = "INFORME O ID DO ATENDENTE";
     final static String DELETAR_PEDIDO = "INFORME O PEDIDO QUE DESEJA DELETAR";
     final static String PEDIDO_EXCLUIDO_COM_SUCESSO = "O PEDIDO FOI DELETADO COM SUCESSO";
     final static String PEDIDO_CADASTRADO = "PEDIDO CADASTRADO COM SUCESSO";

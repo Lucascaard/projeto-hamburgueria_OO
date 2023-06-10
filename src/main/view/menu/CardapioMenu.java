@@ -17,7 +17,7 @@ public class CardapioMenu extends Menu{
         Command ProductList = new Command() {
             public void exe(){
                 Prompt.blankLine();
-                Prompt.print(Message.CARDAPIO);
+                Prompt.print(Message.MENU_CARDAPIO);
 
                 List<Cardapio> produto = control.getProduct();
                 if(produto.isEmpty()){

@@ -66,4 +66,8 @@ public class Stock {
     public String toString() {
         return "\nID: " + getId() +  "\nProduto: " + product.getNome() + "\nQuantidade: " + qnty;
     }
+
+    public String toStringOrder(){
+        return "\nID: " + getId() +  "\nProduto: " + product.getNome();
+    }
 }

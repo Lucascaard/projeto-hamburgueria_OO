@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 import javax.persistence.*;
 
 @Entity
-public class Order {
+public class FoodOrder {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,14 +24,14 @@ public class Order {
     @ManyToOne
     @JoinColumn( name="produto_id")
 	private Cardapio produto; 
-	private Integer qnty;
+	private Long qnty;
 	private double price;
 
-	public Order(){
+	public FoodOrder(){
 
 	}
 
-	public Order(Client client, Worker worker, Cardapio product, Integer quantidade, double preco) {
+	public FoodOrder(Client client, Worker worker, Cardapio product, Long quantidade, double preco) {
         this.client = client;
         this.worker = worker;
 		this.produto = product;
@@ -71,11 +71,11 @@ public class Order {
 		this.worker = worker;
 	}
 
-	public Integer getQnty() {
+	public Long getQnty() {
 		return qnty;
 	}
 
-	public void setQnty(Integer quantidade) {
+	public void setQnty(Long quantidade) {
 		this.qnty = quantidade;
 	}
 
@@ -98,11 +98,12 @@ public class Order {
 
     @Override
     public String toString() {
-        return "id: " + getId() + "\n" +
-        "Data: " + getDataPedido() + "\n" + 
-        "Cliente: " + getClient() + "\n" + 
-        "Atendente: " + getWorker() + "\n" +
+        return "\nPEDIDO\nID: " + getId() + "\n" +
         "Quantidade: " + getQnty() + "\n" +
-		"Preço: " + getPrice() + "\n";
+		"Preço: " + getPrice() + "\n" +
+        "Data: " + getDataPedido() + "\n" + 
+        getClient() + "\n" + 
+        getWorker() + "\n";
     }
+
 }

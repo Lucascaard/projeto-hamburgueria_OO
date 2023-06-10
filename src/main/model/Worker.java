@@ -48,12 +48,17 @@ public class Worker extends Pessoa {
 
 		@Override
 		public String toString() {
-		return 	"ID: " + getId() + "\n" +
-				"Funcionário:" + getName() + "\n" +
+		return 	"\nFuncionário:" + getName() + "\n" +
+				"ID: " + getId() + "\n" +
 				"CPF:" + getCPF() + "\n" +
 				"Sexo: " + getSex() + "\n" +
 				"Data de Admissão: " + getDataAdmissao() + "\n" +
 				"Horário de Entrada: " + getHorarioEntrada() + "\n" +
 				"Horário de Saída: " + getHorarioSaida();
+		}
+
+		public String toStringOrder(){
+			return 	"\nFuncionário:" + getName() +
+					"ID: " + getId() + "\n";
 		}
 	}	
