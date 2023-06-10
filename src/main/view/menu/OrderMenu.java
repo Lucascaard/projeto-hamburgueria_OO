@@ -52,12 +52,12 @@ public class OrderMenu extends Menu {
                     if(WorkerController.getInstance().workerExists(idWorker) != null){
                         Long qnty = (long) Prompt.intReader(Message.INFORME_PEDIDO_QUANTIDADE); //ok
                     } else{
-                        System.out.println("Funcionario não encontrado");
+                        Prompt.print(Message.FUNCIONARIO_NAO_ENCONTRADO);
                         OrderView.getInstance().show();
                     }
 
                 } else{
-                    System.out.println("Cliente não encontrado");
+                    Prompt.print(Message.CLIENTE_NAO_ENCONTRADO);
                     OrderView.getInstance().show();
                 }
                 //FALTA FAZER

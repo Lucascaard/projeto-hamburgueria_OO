@@ -25,16 +25,18 @@ public class Order {
     @JoinColumn( name="produto_id")
 	private Cardapio produto; 
 	private Integer qnty;
+	private double price;
 
 	public Order(){
 
 	}
 
-	public Order(Client client, Worker worker, Cardapio product, Integer quantidade) {
+	public Order(Client client, Worker worker, Cardapio product, Integer quantidade, double preco) {
         this.client = client;
         this.worker = worker;
 		this.produto = product;
         this.qnty = quantidade;
+		this.price = preco;
     }
 
     public Long getId() {
@@ -85,6 +87,14 @@ public class Order {
 		this.produto = produto;
 	}
 
+	public double getPrice() {
+		return price;
+	}	
+
+	public void setPreco(double preco){
+		this.price = preco;
+	}
+
 
     @Override
     public String toString() {
@@ -92,6 +102,7 @@ public class Order {
         "Data: " + getDataPedido() + "\n" + 
         "Cliente: " + getClient() + "\n" + 
         "Atendente: " + getWorker() + "\n" +
-        "Quantidade: " + getQnty();
+        "Quantidade: " + getQnty() + "\n" +
+		"Preço: " + getPrice() + "\n";
     }
 }
