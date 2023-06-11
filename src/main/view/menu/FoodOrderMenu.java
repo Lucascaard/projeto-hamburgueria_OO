@@ -171,8 +171,6 @@ public class FoodOrderMenu extends Menu {
                  * Fazer soma dos preços dos itens e mostrar no final o valor total
                  */
 
-
-
                     /*Client client = new Client();
                     Worker worker = new Worker();
                     Produto product = new Produto();
