@@ -45,7 +45,7 @@ public class Client extends Pessoa {
 	}
 
 	public String toStringOrder(){
-		return 	"\nCliente: " + getName() +
+		return 	"\nCliente: " + getName() + "\n" +
 				"ID: " + getId() + "\n";
 	}
 }

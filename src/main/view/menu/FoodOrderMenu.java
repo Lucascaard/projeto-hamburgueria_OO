@@ -56,25 +56,12 @@ public class FoodOrderMenu extends Menu {
             }
         };
 
-        // Command ShowProducts = new Command(){
-        //     public void exe(){
-        //         List<Cardapio> product = cardapioControl.getProduct();
-        //             if (product.isEmpty()) {
-        //                 Prompt.print(Message.CARDAPIO_VAZIO);
-        //             } else {
-        //                 for(Cardapio item_product : product){
-        //                     Prompt.print(item_product.toString());
-        //                 }
-        //             }
-        //     }
-        // };
-
         Command ShowStockOrder = new Command(){
             public void exe(){
 
-                Prompt.blankLine();
-                Prompt.print(Message.ESTOQUE_ATUAL);
-                Prompt.blankLine();
+                // Prompt.blankLine();
+                // Prompt.print(Message.ESTOQUE_ATUAL);
+                // Prompt.blankLine();
                 List<Stock> stock = stockControl.getStock();
                 if (stock.isEmpty()) {
                     Prompt.print(Message.ESTOQUE_VAZIO);
@@ -92,22 +79,26 @@ public class FoodOrderMenu extends Menu {
                 Prompt.print(Message.MSG_CADASTRO_PEDIDO);
                 Prompt.separator();
                 Prompt.blankLine();
-                Long  idClient = (long) Prompt.intReader(Message.INFORME_CLIENTE); //mudar para informe id
 
-                if(clientControl.search(idClient) != null){
+                Long idWorker = (long) Prompt.intReader(Message.INFORME_ATENDENTE); 
 
-                    Prompt.print(clientControl.search(idClient).toStringOrder());
-                    
-                    Long idWorker = (long) Prompt.intReader(Message.INFORME_ATENDENTE); // mudar para informe id do worker
-
-                    if(workerControl.search(idWorker) != null){
+                if(workerControl.search(idWorker) != null){
                         
-                        Prompt.print(workerControl.search(idWorker).toStringOrder());
+                    Prompt.print(workerControl.search(idWorker).toStringOrder());
+
+                    
+
+                    Long  idClient = (long) Prompt.intReader(Message.INFORME_CLIENTE);
+
+                    if(clientControl.search(idClient) != null){
+
+                        Prompt.print(clientControl.search(idClient).toStringOrder());
 
                         Prompt.separator();
                         Prompt.print(Message.MENU_CARDAPIO);
                         Prompt.separator();
                         ShowStockOrder.exe();
+                        Prompt.blankLine();
 
                         Long idPedido = (long) Prompt.intReader(Message.INFORME_ID_PEDIDO);
 
@@ -115,9 +106,12 @@ public class FoodOrderMenu extends Menu {
 
                             Cardapio produto = stockControl.search(idPedido).getProduct();
 
+                            Stock capacidadeAux = stockControl.search(idPedido);
+                            Long capacidade = capacidadeAux.getQnty();
+
                             Long qnty = (long) Prompt.intReader(Message.INFORME_PEDIDO_QUANTIDADE);
 
-                            if(qnty > 0){
+                            if(qnty > 0 && capacidade >= qnty){
 
                                 Client client = new Client();
                                 Worker worker = new Worker();
@@ -170,56 +164,12 @@ public class FoodOrderMenu extends Menu {
                  * Fazer baixa no estoque do item que foi vendido usando o controller do estoque
                  * Fazer soma dos preços dos itens e mostrar no final o valor total
                  */
-
-
-
-                    /*Client client = new Client();
-                    Worker worker = new Worker();
-                    Produto product = new Produto();
-                    Stock stock = new Stock();
-
-                    client = clientControl.clientExists(CPFcliente);
-                    worker = workerControl.workerExists(CPFatendente);
-                    product = productControl.produtoExists(idpedido);
-                    stock = stockControl.search(idpedido);
-
-                    if (client != null && worker != null && product != null && stock != null) {
-
-                        if (stock.getQnty() >= qnty) {
-                            stock.setQnty(stock.getQnty() - qnty);
-
-                            stockControl.update(stock);
-
-                           Order order = new Order(client, worker, idpedido, qnty);
-        
-                            control.create(order);
-        
-                            Prompt.blankLine();
-                            Prompt.separator();
-                            Prompt.print(Message.PEDIDO_CADASTRADO);
-                            Prompt.separator();
-                            Prompt.blankLine();
-                        } else {
-                            Prompt.blankLine();
-                            Prompt.print(Message.ERRO_QUANTIDADE_INSUFICIENTE);
-                            Prompt.blankLine();
-                            ClientView.getInstance().show();
-                        }
-                    } else {
-                        Prompt.blankLine();
-                        Prompt.print(Message.ERRO_AO_CRIAR_PEDIDO);
-                    }
-
-                
-
-                Prompt.blankLine();
-                OrderList.exe();*/
             }
         });
 
         adicionar(2, Message.READ, OrderList);
 
-         // adicionar(3, Message.UPDATE, new Command(){
+        // adicionar(3, Message.UPDATE, new Command(){
         //     public void exe(){
         //         Prompt.blankLine();
         //         Prompt.print(Message.UP_PEDIDO);
