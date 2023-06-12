@@ -171,12 +171,12 @@ public class FoodOrderMenu extends Menu {
 
 
                     } else{
-                        Prompt.print(Message.FUNCIONARIO_NAO_ENCONTRADO);
+                        Prompt.print(Message.CLIENTE_NAO_ENCONTRADO);
                         FoodOrderView.getInstance().show();
                     }
 
                 } else{
-                    Prompt.print(Message.CLIENTE_NAO_ENCONTRADO);
+                    Prompt.print(Message.FUNCIONARIO_NAO_ENCONTRADO);
                     FoodOrderView.getInstance().show();
                 }
             }
