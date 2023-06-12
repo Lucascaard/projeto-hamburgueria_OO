@@ -17,12 +17,13 @@ public class WorkerMenu extends Menu {
     public WorkerMenu() {
 
         Command WorkerList = new Command() {
+            //lista geral para sempre listar os funcionários
             public void exe() {
                 Prompt.blankLine();
                 Prompt.print(Message.LISTA_DE_FUNCIONARIOS);
                 Prompt.blankLine();
                 Prompt.separator();
-
+                
                 List<Worker> worker = control.getWorker();
                 if (worker.isEmpty()) {
                     Prompt.print(Message.NAO_HA_FUNCIONARIOS);
@@ -68,7 +69,7 @@ public class WorkerMenu extends Menu {
                 Prompt.blankLine();
 
                 if (!name.isEmpty()) {
-
+                    //criando um novo funcionário
                     Worker newWorker = new Worker(name, sex, CPF, dataAdmissao, horarioEntrada, horarioSaida);
                     control.create(newWorker);
                 }
@@ -78,7 +79,7 @@ public class WorkerMenu extends Menu {
             }
         });
 
-        adicionar(2, Message.READ, WorkerList);
+        adicionar(2, Message.READ, WorkerList); //pega a lista geral 
 
         adicionar(3, Message.UPDATE, new Command() {
             public void exe() {
@@ -87,7 +88,7 @@ public class WorkerMenu extends Menu {
                 Long id = (long) Prompt.intReader(Message.INFORM_ID);
 
                 if (id > 0) {
-                    Worker WorkerUpdate = control.search(id);
+                    Worker WorkerUpdate = control.search(id);//procurando por id
 
                     if (WorkerUpdate != null) {
                         String name = Prompt.lineReader(Message.INFORME_NOME);
@@ -125,9 +126,9 @@ public class WorkerMenu extends Menu {
                 Prompt.blankLine();
                 Prompt.print(Message.EXCLUIR_FUNCIONARIO);
                 Long id = (long) Prompt.intReader(Message.INFORM_ID);
-
+                //busca pelo id do funcionário e deleta o funcionário que possui esse Id
                 if (id > 0) {
-                    control.delete(id);
+                    control.delete(id); //deletando
                     Prompt.blankLine();
                     Prompt.print(Message.FUNCIONARIO_EXCLUIDO);
                     Prompt.blankLine();
@@ -146,7 +147,7 @@ public class WorkerMenu extends Menu {
     }
 
     public void adicionar(Integer index, String texto, Command command) {
-        itens.add(new ItemMenu(index, texto, command));
+        itens.add(new ItemMenu(index, texto, command)); //sintaxe que o codigo vai apresentar na tela
     }
 
     public List<ItemMenu> getItens() {
