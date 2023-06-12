@@ -25,7 +25,7 @@ public class StockMenu extends Menu{
             public void exe(){
                 Prompt.blankLine();
                 Prompt.print(Message.ESTOQUE_ATUAL);
-
+                Prompt.blankLine();
                 List<Stock> stock = stockControl.getStock();
                 if (stock.isEmpty()) {
                     Prompt.print(Message.ESTOQUE_VAZIO);
@@ -82,11 +82,6 @@ public class StockMenu extends Menu{
 
                 Long id = (long) Prompt.intReader(Message.INFORME_ID_CADASTRO);
 
-
-                //ProdutoDAO produtoDAO = new ProdutoDAO();
-                //Produto produto = produtoDAO.searchById(id);
-
-
                 Cardapio storedProduct = cardapioControl.search(id);
 
                 if (storedProduct != null){
@@ -102,23 +97,6 @@ public class StockMenu extends Menu{
                     Prompt.blankLine();
                     StockView.getInstance().show();
                 }
-
-                // if(StockController.getInstance().search(id) != null){
-                //     Prompt.separator();
-                //     Prompt.print(Message.ID_INVALIDA);
-                //     Prompt.separator();
-                //     Prompt.blankLine();
-                //     StockView.getInstance().show();
-                // }
-                // if(id != null){
-                //     Long qnty = (long) Prompt.intReader(Message.INFORME_QUANTIDADE);
-
-                //     Produto newProduct = productControl.search(id);
-
-                //     Stock newStock = new Stock(id, newProduct, qnty);
-                //     stockControl.create(newStock);
-                //     // Atulizar código quando estiver pronto a parte de produto
-                // }
 
                 Prompt.blankLine();
                 ShowStock.exe();
