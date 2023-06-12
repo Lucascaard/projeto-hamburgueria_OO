@@ -7,7 +7,6 @@ import main.view.*;
 import main.controller.*;
 import main.model.*;
 
-
 public class FoodOrderMenu extends Menu {
     private List<ItemMenu> itens = new ArrayList<>();
 
@@ -79,10 +78,6 @@ public class FoodOrderMenu extends Menu {
 
         Command ShowStockOrder = new Command(){
             public void exe(){
-
-                // Prompt.blankLine();
-                // Prompt.print(Message.ESTOQUE_ATUAL);
-                // Prompt.blankLine();
                 List<Stock> stock = stockControl.getStock();
                 if (stock.isEmpty()) {
                     Prompt.print(Message.ESTOQUE_VAZIO);
@@ -308,43 +303,6 @@ public class FoodOrderMenu extends Menu {
 
         adicionar(4, Message.READNOCLIENT, OrderListNoClient);
 
-
-        // adicionar(3, Message.UPDATE, new Command(){
-        //     public void exe(){
-        //         Prompt.blankLine();
-        //         Prompt.print(Message.UP_PEDIDO);
-        //         Long idpedido = (long) Prompt.intReader(Message.INFORME_ID_PEDIDO);
-                
-        //         if(idpedido > 0){
-        //             Order OrderUpdate = control.search(idpedido);
-
-        //             if(OrderUpdate != null){
-        //                 Long CPFcliente = (long) Prompt.intReader(Message.INFORME_CPF);
-        //                 Long CPFatendente = (long) Prompt.intReader(Message.INFORME_ATENDENTE);
-        //                 Long idpedido = (long) Prompt.intReader(Message.INFORME_ID_PEDIDO);
-        //                 Long quantidade = (long) Prompt.intReader(Message.INFORME_PEDIDO_QUANTIDADE);
-
-        //                 if(cliente != null && idpedido != null{
-        //                     OrderUpdate.setCliente(CPFcliente);
-        //                     OrderUpdate.setAtendente(CPFatendente);
-        //                     OrderUpdate.setIdpedido(idpedido);
-        //                     OrderUpdate.setQuantidade(quantidade);
-
-        //                     control.update(OrderUpdate);
-        //                     Prompt.blankLine();
-        //                     Prompt.print(Message.PEDIDO_ALTERADO_COM_SUCESSO);
-        //                     }
-        //             } else{
-        //                 Prompt.blankLine();
-        //                 Prompt.print(Message.PEDIDO_NAO_ENCONTRADO);
-        //                 }
-        //             Prompt.blankLine();
-        //             Prompt.pressEnter();
-        //             }
-        //         OrderList.exe();
-        //         }
-        // });
-
         adicionar(5, Message.DELETE, new Command() {
             public void exe() {
                 Prompt.blankLine();
@@ -369,7 +327,7 @@ public class FoodOrderMenu extends Menu {
 
         adicionar(6, Message.VOLTAR, new Command() {
             public void exe() {
-                new MainView().show(); // Chama a View Principal
+                new MainView().show();
             }
         });
     }

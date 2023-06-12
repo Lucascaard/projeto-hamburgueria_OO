@@ -38,25 +38,10 @@ public class CardapioMenu extends Menu{
                 Prompt.separator();
                 Prompt.print(Message.MSG_CADASTRO_CARDAPIO);
                 Prompt.separator();
-                //Integer id = Prompt.intReader(Message.INFORME_ID);
                 String nome = Prompt.lineReader(Message.INFORME_NOME_PRODUTO);
         	    String marca = Prompt.lineReader(Message.INFORME_MARCA);
         	    double preco  = Prompt.decimalReader(Message.INFORME_PRECO);
         	    int codBarra = Prompt.intReader(Message.INFORME_CODBARRA);
-
-
-                // if(ProductController.getInstance().produtoExists(get) != null){
-                //     Prompt.separator();
-                //     Prompt.print(Message.ID_JA_EXISTE);
-                //     Prompt.separator();
-                //     Prompt.blankLine();
-                //     ProductView.getInstance().show();
-                // }
-                // Prompt.blankLine();
-                // Prompt.separator();
-                // Prompt.print(Message.PRODUTO_CADASTRADO_ESTOQUE);
-                // Prompt.separator();
-                // Prompt.blankLine();
 
                 if(!nome.isEmpty()){
                     Cardapio newProduct = new Cardapio(nome, marca, preco, codBarra);
@@ -125,7 +110,7 @@ public class CardapioMenu extends Menu{
 
         adicionar(5, Message.VOLTAR, new Command(){
             public void exe(){
-                new MainView().show(); // Chama a View Principal
+                new MainView().show(); 
             }
         });
     }

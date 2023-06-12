@@ -5,7 +5,6 @@ import java.util.List;
 
 import main.controller.CardapioController;
 import main.controller.StockController;
-//import main.daos.ProdutoDAO;
 import main.model.Cardapio;
 import main.model.Stock;
 import main.util.*;
@@ -69,7 +68,6 @@ public class StockMenu extends Menu{
                 }
             }
         };
-
 
         adicionar(1, Message.CREATE, new Command(){
             public void exe(){
@@ -140,9 +138,7 @@ public class StockMenu extends Menu{
 
                 Prompt.blankLine();
                 Prompt.pressEnter();
-
                 }
-
                 ShowStock.exe();
                 StockView.getInstance().show();
             }

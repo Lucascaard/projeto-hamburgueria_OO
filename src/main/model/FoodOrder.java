@@ -103,7 +103,6 @@ public class FoodOrder {
 		this.price = preco;
 	}
 
-
     @Override
     public String toString() {
         return "\nPEDIDO \n" +
@@ -127,5 +126,4 @@ public class FoodOrder {
         "Data: " + getDataPedido() + "\n" + 
         "\n" + worker.toStringOrder() + "\n";
     }
-
 }

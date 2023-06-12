@@ -2,6 +2,7 @@ package main.model;
 import java.time.LocalDate;
 
 import javax.persistence.Entity;
+
 @Entity 
 public class Manager extends Pessoa {
 

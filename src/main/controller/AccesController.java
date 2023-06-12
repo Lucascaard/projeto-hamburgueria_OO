@@ -10,8 +10,6 @@ public class AccesController {
         return loggedUser != null;
     }
 
-    
-
     public static Boolean authentication(String log, String pass){
 
     String login = "login";

@@ -63,7 +63,6 @@ public class Cardapio {
         this.codBarra = codBarra;
     }
 
-    
     @Override
     public String toString() {
         return "\nID: " + getId() + "\n" +
@@ -72,5 +71,4 @@ public class Cardapio {
         "Preço: " + getPreco() + "\n" +
         "Código de barra: " + getCodBarra();
     }
-
 }

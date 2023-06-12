@@ -15,7 +15,6 @@ public class Stock {
     private Long qnty;
     private String name;
    
-    
     //Construtores
     public Stock(){
         
@@ -26,7 +25,6 @@ public class Stock {
         this.qnty = qnty;
         this.name = name;
     }
-    
     
     //getters e setters
     public String getName() {
@@ -52,7 +50,6 @@ public class Stock {
     public void setProduct(Cardapio product) {
         this.product = product;
     }
-
 
     public Long getQnty() {
         return qnty;

@@ -74,42 +74,43 @@ public class ManagerMenu extends Menu {
 
         adicionar(2, Message.READ, ManagerList);
 
-       adicionar(3, Message.UPDATE, new Command(){
-           public void exe(){
-            //    Prompt.blankLine();
-            //    Prompt.print(Message.UPDATE_GERENTE);
-            //    Long id = (long) Prompt.intReader(Message.INFORM_ID);
-               
-            //    if(id > 0){
-            //        Manager ManagerUpdate = control.search(id);
+        adicionar(3, Message.UPDATE, new Command(){
+            public void exe(){
+                Prompt.blankLine();
+                Prompt.print(Message.UPDATE_GERENTE);
+                Long id = (long) Prompt.intReader(Message.INFORM_ID);
+                
+                if(id > 0){
+                    Manager ManagerUpdate = control.search(id);
 
-            //        if(ManagerUpdate != null){
-            //            String name = Prompt.lineReader(Message.INFORME_NOME);
-            //            String sex = Prompt.lineReader(Message.INFORME_SEXO);
-            //            String address = Prompt.lineReader(Message.INFORME_ENDERECO);
-            //            Integer CPF = Prompt.intReader(Message.INFORME_CPF);
+                    if(ManagerUpdate != null){
+                        String name = Prompt.lineReader(Message.INFORME_NOME);
+                        String sex = Prompt.lineReader(Message.INFORME_SEXO);
+                        Integer CPF = Prompt.intReader(Message.INFORME_CPF);
+                        LocalDate dataAdmissao = Prompt.dateReader(Message.INFORME_DATA_ADMISSAO);
+                        Double salario = Prompt.decimalReader(Message.INFORME_SALARIO);
 
-            //            if(name != null && CPF != null){
-            //                ManagerUpdate.setNome(name);
-            //                ManagerUpdate.setSexo(sex);
-            //                ManagerUptade.setDataAdmissao(dataAdmissao);
-            //                ManagerUptade.setSalario(salario);
-            //                ManagerUpdate.setCPF(CPF);
+                        if(!name.isEmpty() && CPF != null){
+                            ManagerUpdate.setName(name);
+                            ManagerUpdate.setSex(sex);
+                            ManagerUpdate.setCPF(CPF);
+                            ManagerUpdate.setDataAdmissao(dataAdmissao);
+                            ManagerUpdate.setSalario(salario);
 
-            //                control.update(ManagerUpdate);
-            //                Prompt.blankLine();
-            //                Prompt.print(Message.ALTERADO_COM_SUCESSO_GERENTE);
-            //                }
-            //        } else{
-            //            Prompt.blankLine();
-            //            Prompt.print(Message.GERENTE_NAO_ENCONTRADO);
-            //            }
-            //        Prompt.blankLine();
-            //        Prompt.pressEnter();
-            //        }
-            //    ManagerList.exe();
-               }
-       });
+                            control.update(ManagerUpdate);
+                            Prompt.blankLine();
+                            Prompt.print(Message.ALTERADO_COM_SUCESSO_GERENTE);
+                            }
+                    } else{
+                        Prompt.blankLine();
+                        Prompt.print(Message.GERENTE_NAO_ENCONTRADO);
+                        }
+                    Prompt.blankLine();
+                    Prompt.pressEnter();
+                    }
+                ManagerList.exe();
+                }
+        });
 
         adicionar(4, Message.DELETE, new Command(){
             public void exe(){
@@ -130,7 +131,7 @@ public class ManagerMenu extends Menu {
 
         adicionar(5, Message.VOLTAR, new Command(){
             public void exe(){
-                new MainView().show(); // Chama a View Principal
+                new MainView().show();
             }
         });
     }

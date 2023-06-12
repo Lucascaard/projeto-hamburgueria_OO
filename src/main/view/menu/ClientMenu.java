@@ -27,7 +27,6 @@ public class ClientMenu extends Menu {
 					for (Client customer : client) {
                         Prompt.separator();
 						Prompt.print(customer.toString());
-                        
 					}
 				}
                 Prompt.separator();
@@ -129,7 +128,7 @@ public class ClientMenu extends Menu {
 
         adicionar(5, Message.VOLTAR, new Command(){
             public void exe(){
-                new MainView().show(); // Chama a View Principal
+                new MainView().show();
             }
         });
     }
