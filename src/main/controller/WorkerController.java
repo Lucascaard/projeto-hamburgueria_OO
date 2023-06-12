@@ -12,7 +12,7 @@ public class WorkerController {
     private DAO<Worker> dao = new WorkerDAO();
 
     private WorkerController() {}
-
+//Comparando de WorkerController
     public static synchronized WorkerController getInstance() {
         if (instance == null) {
             instance = new WorkerController();
@@ -20,26 +20,32 @@ public class WorkerController {
         return instance;
     }
 
+    //listando
     public List<Worker> getWorker() {
         return dao.list();
     }
 
+    //procurando por id
     public Worker search(Long id) {
         return dao.searchById(id);
     }
 
+    //salvando
     public void create(Worker worker) {
         dao.save(worker);
     }
 
+    //atualizando
     public void update(Worker worker) {
         dao.update(worker);
     }
 
+    //deletando
     public void delete(Long id) {
         dao.delete(id);
     }
 
+    // verificando se existe
     public Worker workerExists(Long id){
         return dao.searchById(id);
     }
