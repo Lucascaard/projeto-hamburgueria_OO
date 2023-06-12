@@ -106,12 +106,26 @@ public class FoodOrder {
 
     @Override
     public String toString() {
-        return "\nPEDIDO\nID: " + getId() + "\n" +
+        return "\nPEDIDO \n" +
+		"\nID: " + getId() + "\n" +
+		"Produto: " + getProduto() + "\n" +
+		"TOTAL: " + " \n" +
         "Quantidade: " + getQnty() + "\n" +
 		"Preço: " + getPrice() + "\n" +
         "Data: " + getDataPedido() + "\n" + 
-        getClient() + "\n" + 
-        getWorker() + "\n";
+        "\n" + client.toStringOrder() + "\n" + 
+        worker.toStringOrder();
+    }
+
+	public String toStringNoClient() {
+        return "\nPEDIDO SEM CLIENTE \n" +
+		"\nID: " + getId() + "\n" +
+		"Produto: " + getProduto().getNome() + "\n" +
+		"TOTAL: " + " \n" +
+        "Quantidade: " + getQnty() + "\n" +
+		"Preço: " + getPrice() + "\n" +
+        "Data: " + getDataPedido() + "\n" + 
+        "\n" + worker.toStringOrder() + "\n";
     }
 
 }

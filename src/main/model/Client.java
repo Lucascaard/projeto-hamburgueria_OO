@@ -37,7 +37,7 @@ public class Client extends Pessoa {
 
 	@Override
 	public String toString() {
-		return 	"\nCliente: " + getName() + "\n" +
+		return 	"\n Cliente: " + getName() + "\n" +
 				"ID: " + getId() + "\n" +
 				"CPF: " + getCPF() + "\n" +
 				"Sexo: " + getSex() + "\n" +
@@ -45,7 +45,7 @@ public class Client extends Pessoa {
 	}
 
 	public String toStringOrder(){
-		return 	"\nCliente: " + getName() + "\n" +
+		return 	"Cliente: " + getName() + "\n" +
 				"ID: " + getId() + "\n";
 	}
 }

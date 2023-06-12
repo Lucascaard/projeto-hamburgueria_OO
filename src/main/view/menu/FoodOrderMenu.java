@@ -28,9 +28,32 @@ public class FoodOrderMenu extends Menu {
                     Prompt.print(Message.NAO_HA_PEDIDOS); 
                 } else {
                     for (FoodOrder customer : order) {
+                        Prompt.separator();
                         Prompt.print(customer.toString());
                     }
                 }
+                Prompt.separator();
+                Prompt.blankLine();
+                Prompt.pressEnter();
+                FoodOrderView.getInstance().show();
+            }
+        };
+
+        Command OrderListNoClient = new Command() {
+            public void exe() {
+                Prompt.blankLine();
+                Prompt.print(Message.LISTA_DE_PEDIDOS);
+                
+                List<FoodOrder> order = control.getOrder();
+                if (order.isEmpty()) {
+                    Prompt.print(Message.NAO_HA_PEDIDOS); 
+                } else {
+                    for (FoodOrder customer : order) {
+                        Prompt.separator();
+                        Prompt.print(customer.toStringNoClient());
+                    }
+                }
+                Prompt.separator();
                 Prompt.blankLine();
                 Prompt.pressEnter();
                 FoodOrderView.getInstance().show();
@@ -131,7 +154,7 @@ public class FoodOrderMenu extends Menu {
                                     existingOrder.setQnty(existingOrder.getQnty() + qnty);
                                     existingOrder.setPreco(existingOrder.getPrice() + price);
                                     totalOrderPrice += price; // Atualizar o preço total
-                                    Prompt.print("Quantidade atualizada do pedido: " + existingOrder.getQnty());
+                                    Prompt.print(Message.QTDE_FINAL + existingOrder.getQnty());
                                 } else {
                                     // Criar um novo objeto FoodOrder
                                     currentOrder = new FoodOrder(client, worker, pedido, qnty, price);
@@ -164,7 +187,7 @@ public class FoodOrderMenu extends Menu {
                         }
                         }
                         double desconto = totalOrderPrice * 0.1;
-                        Prompt.print("Preço total dos pedidos: " + (totalOrderPrice - desconto));
+                        Prompt.print(Message.TOT_PEDIDO + (totalOrderPrice - desconto));
                         Prompt.blankLine();
 
                     FoodOrderView.getInstance().show();
@@ -234,7 +257,7 @@ public class FoodOrderMenu extends Menu {
                                     existingOrder.setQnty(existingOrder.getQnty() + qnty);
                                     existingOrder.setPreco(existingOrder.getPrice() + price);
                                     totalOrderPrice += price; // Atualizar o preço total
-                                    Prompt.print("Quantidade atualizada do pedido: " + existingOrder.getQnty());
+                                    Prompt.print(Message.QTDE_FINAL + existingOrder.getQnty());
                                 } else {
                                     // Criar um novo objeto FoodOrder
                                     currentOrder = new FoodOrder(worker, pedido, qnty, price);
@@ -267,7 +290,7 @@ public class FoodOrderMenu extends Menu {
                         }
                         }
 
-                        Prompt.print("Preço total dos pedidos: " + totalOrderPrice);
+                        Prompt.print(Message.TOT_PEDIDO + totalOrderPrice);
                         Prompt.blankLine();
 
                     FoodOrderView.getInstance().show();
@@ -282,6 +305,9 @@ public class FoodOrderMenu extends Menu {
         });
 
         adicionar(3, Message.READ, OrderList);
+
+        adicionar(4, Message.READNOCLIENT, OrderListNoClient);
+
 
         // adicionar(3, Message.UPDATE, new Command(){
         //     public void exe(){
@@ -319,7 +345,7 @@ public class FoodOrderMenu extends Menu {
         //         }
         // });
 
-        adicionar(4, Message.DELETE, new Command() {
+        adicionar(5, Message.DELETE, new Command() {
             public void exe() {
                 Prompt.blankLine();
                 Prompt.print(Message.DELETAR_PEDIDO);
@@ -341,7 +367,7 @@ public class FoodOrderMenu extends Menu {
             }
         });
 
-        adicionar(5, Message.VOLTAR, new Command() {
+        adicionar(6, Message.VOLTAR, new Command() {
             public void exe() {
                 new MainView().show(); // Chama a View Principal
             }
