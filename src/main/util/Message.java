@@ -157,7 +157,7 @@ public interface Message {
     final static String LISTA_DE_PEDIDOS = "LISTA DE PEDIDOS";
     final static String NAO_HA_PEDIDOS = "NÃO EXISTEM PEDIDOS CADASTRADOS";
     final static String UP_PEDIDO = "ALTERAR PEDIDO";
-    final static String INFORME_ID_PEDIDO = "INFORME O ID DO PRODUTO:";
+    final static String INFORME_ID_PEDIDO = "INFORME O ID DO PEDIDO:";
     final static String JA_EXISTE_PEDIDO = "JÁ EXISTE UM PEDIDO COM ESSE ID";
     final static String PEDIDO_ALTERADO_COM_SUCESSO = "PEDIDO ALTERADO COM SUCESSO";
     final static String INFORME_PEDIDO_QUANTIDADE = "INFORME A QUANTIDADE DO PEDIDO:";

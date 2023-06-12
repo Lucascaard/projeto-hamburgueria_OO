@@ -40,7 +40,7 @@ public class Manager extends Pessoa {
 	
 	@Override
 	public String toString() {
-		return 	"\nCliente: " + getName() + "\n" +
+		return 	"\nGerente: " + getName() + "\n" +
 				"ID: " + getId() + "\n" +
 				"CPF: " + getCPF() + "\n" +
 				"Sexo: " + getSex() + "\n" +
