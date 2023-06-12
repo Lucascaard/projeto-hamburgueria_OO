@@ -73,7 +73,7 @@ public class FoodOrderMenu extends Menu {
             }
         };
 
-        adicionar(1, Message.CREATE, new Command() {
+        adicionar(1, Message.CREATE_COM_CLIENTE, new Command() {
             public void exe() {
                 Prompt.separator();
                 Prompt.print(Message.MSG_CADASTRO_PEDIDO);
@@ -145,16 +145,114 @@ public class FoodOrderMenu extends Menu {
                                     Prompt.print(Message.PEDIDO_CADASTRADO);
                                 }
 
-                                //FoodOrder order = new FoodOrder(client, worker, pedido, qnty, price);
+                                Stock stockUpdate = stockControl.search(idPedido);
+                                stockUpdate.setQnty(stockUpdate.getQnty() - qnty);
 
-                                //control.create(order);
+                                stockControl.update(stockUpdate);
+
+                                // Verificar se o usuário deseja fazer mais pedidos
+                                Prompt.print(Message.DESEJA_FAZER_MAIS_PEDIDOS);
+                                String resposta = Prompt.lineReader(Message.SIM_OU_NAO);
+                                fazerMaisPedidos = resposta.equalsIgnoreCase("S");
+
+                            } else {
+                                Prompt.print(Message.QNTD_INVALIDA);
+                                FoodOrderView.getInstance().show();
+                            }
+
+                        } else {
+                            Prompt.print(Message.PRODUTO_NAO_ENCONTRADO);
+                            FoodOrderView.getInstance().show();
+                        }
+                        }
+                        double desconto = totalOrderPrice * 0.1;
+                        Prompt.print("Preço total dos pedidos: " + (totalOrderPrice - desconto));
+                        Prompt.blankLine();
+
+                    FoodOrderView.getInstance().show();
+
+
+                    } else{
+                        Prompt.print(Message.FUNCIONARIO_NAO_ENCONTRADO);
+                        FoodOrderView.getInstance().show();
+                    }
+
+                } else{
+                    Prompt.print(Message.CLIENTE_NAO_ENCONTRADO);
+                    FoodOrderView.getInstance().show();
+                }
+            }
+        });
+
+        adicionar(2, Message.CREATE_PADRAO, new Command() {
+            public void exe() {
+                Prompt.separator();
+                Prompt.print(Message.MSG_CADASTRO_PEDIDO);
+                Prompt.separator();
+                Prompt.blankLine();
+
+                Long idWorker = (long) Prompt.intReader(Message.INFORME_ATENDENTE); 
+
+                if(workerControl.search(idWorker) != null){
+                        
+                    Prompt.print(workerControl.search(idWorker).toStringOrder());
+
+                        boolean fazerMaisPedidos = true;
+                        double totalOrderPrice = 0;
+                        FoodOrder currentOrder;
+
+                        while (fazerMaisPedidos) {
+
+                        Prompt.separator();
+                        Prompt.print(Message.MENU_CARDAPIO);
+                        Prompt.separator();
+                        ShowStockOrder.exe();
+                        Prompt.blankLine();
+
+                        Long idPedido = (long) Prompt.intReader(Message.INFORME_ID_PEDIDO);
+
+                        if(stockControl.search(idPedido) != null){
+
+                            Cardapio produto = stockControl.search(idPedido).getProduct();
+
+                            Stock capacidadeAux = stockControl.search(idPedido);
+                            Long capacidade = capacidadeAux.getQnty();
+
+                            Long qnty = (long) Prompt.intReader(Message.INFORME_PEDIDO_QUANTIDADE);
+
+                            if(qnty > 0 && capacidade >= qnty){
+
+                                Worker worker = new Worker();
+                                Cardapio pedido = new Cardapio();
+
+                                worker = workerControl.search(idWorker);
+                                pedido = produto;
+
+                                double price = qnty * pedido.getPreco();
+
+                                // Verificar se o pedido atual já existe na lista de pedidos
+                                FoodOrder existingOrder = control.search(idPedido);
+                                if (existingOrder != null) {
+                                    existingOrder.setQnty(existingOrder.getQnty() + qnty);
+                                    existingOrder.setPreco(existingOrder.getPrice() + price);
+                                    totalOrderPrice += price; // Atualizar o preço total
+                                    Prompt.print("Quantidade atualizada do pedido: " + existingOrder.getQnty());
+                                } else {
+                                    // Criar um novo objeto FoodOrder
+                                    currentOrder = new FoodOrder(worker, pedido, qnty, price);
+                                    control.create(currentOrder);
+
+                                    totalOrderPrice += price; // Atualizar o preço total
+
+                                    Prompt.print(currentOrder.toString());
+                                    Prompt.print(Message.PEDIDO_CADASTRADO);
+                                }
 
                                 Stock stockUpdate = stockControl.search(idPedido);
                                 stockUpdate.setQnty(stockUpdate.getQnty() - qnty);
 
                                 stockControl.update(stockUpdate);
 
-                                //FoodOrderView.getInstance().show();
                                 // Verificar se o usuário deseja fazer mais pedidos
                                 Prompt.print(Message.DESEJA_FAZER_MAIS_PEDIDOS);
                                 String resposta = Prompt.lineReader(Message.SIM_OU_NAO);
@@ -182,14 +280,10 @@ public class FoodOrderMenu extends Menu {
                         FoodOrderView.getInstance().show();
                     }
 
-                } else{
-                    Prompt.print(Message.CLIENTE_NAO_ENCONTRADO);
-                    FoodOrderView.getInstance().show();
-                }
             }
         });
 
-        adicionar(2, Message.READ, OrderList);
+        adicionar(3, Message.READ, OrderList);
 
         // adicionar(3, Message.UPDATE, new Command(){
         //     public void exe(){
@@ -227,7 +321,7 @@ public class FoodOrderMenu extends Menu {
         //         }
         // });
 
-        adicionar(3, Message.DELETE, new Command() {
+        adicionar(4, Message.DELETE, new Command() {
             public void exe() {
                 Prompt.blankLine();
                 Prompt.print(Message.DELETAR_PEDIDO);
@@ -249,7 +343,7 @@ public class FoodOrderMenu extends Menu {
             }
         });
 
-        adicionar(4, Message.VOLTAR, new Command() {
+        adicionar(5, Message.VOLTAR, new Command() {
             public void exe() {
                 new MainView().show(); // Chama a View Principal
             }

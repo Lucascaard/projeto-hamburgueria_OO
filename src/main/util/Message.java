@@ -8,6 +8,8 @@ public interface Message {
 
     //CRUD
     final static String CREATE = "CADASTRAR ";
+    final static String CREATE_COM_CLIENTE = "CADASTRAR COM CLIENTE";
+    final static String CREATE_PADRAO = "CADASTRAR SEM CLIENTE";
     final static String READ = "LISTAR";
     final static String UPDATE = "ALTERAR";
     final static String DELETE = "DELETAR";
