@@ -86,13 +86,17 @@ public class FoodOrderMenu extends Menu {
                         
                     Prompt.print(workerControl.search(idWorker).toStringOrder());
 
-                    
-
                     Long  idClient = (long) Prompt.intReader(Message.INFORME_CLIENTE);
 
                     if(clientControl.search(idClient) != null){
 
                         Prompt.print(clientControl.search(idClient).toStringOrder());
+
+                        boolean fazerMaisPedidos = true;
+                        double totalOrderPrice = 0;
+                        FoodOrder currentOrder;
+
+                        while (fazerMaisPedidos) {
 
                         Prompt.separator();
                         Prompt.print(Message.MENU_CARDAPIO);
@@ -123,19 +127,38 @@ public class FoodOrderMenu extends Menu {
 
                                 double price = qnty * pedido.getPreco();
 
-                                FoodOrder order = new FoodOrder(client, worker, pedido, qnty, price);
+                                // Verificar se o pedido atual já existe na lista de pedidos
+                                FoodOrder existingOrder = control.search(idPedido);
+                                if (existingOrder != null) {
+                                    existingOrder.setQnty(existingOrder.getQnty() + qnty);
+                                    existingOrder.setPreco(existingOrder.getPrice() + price);
+                                    totalOrderPrice += price; // Atualizar o preço total
+                                    Prompt.print("Quantidade atualizada do pedido: " + existingOrder.getQnty());
+                                } else {
+                                    // Criar um novo objeto FoodOrder
+                                    currentOrder = new FoodOrder(client, worker, pedido, qnty, price);
+                                    control.create(currentOrder);
 
-                                control.create(order);
+                                    totalOrderPrice += price; // Atualizar o preço total
+
+                                    Prompt.print(currentOrder.toString());
+                                    Prompt.print(Message.PEDIDO_CADASTRADO);
+                                }
+
+                                //FoodOrder order = new FoodOrder(client, worker, pedido, qnty, price);
+
+                                //control.create(order);
 
                                 Stock stockUpdate = stockControl.search(idPedido);
                                 stockUpdate.setQnty(stockUpdate.getQnty() - qnty);
 
                                 stockControl.update(stockUpdate);
 
-                                Prompt.print(order.toString());
-
-                                Prompt.print(Message.PEDIDO_CADASTRADO);
-                                FoodOrderView.getInstance().show();
+                                //FoodOrderView.getInstance().show();
+                                // Verificar se o usuário deseja fazer mais pedidos
+                                Prompt.print(Message.DESEJA_FAZER_MAIS_PEDIDOS);
+                                String resposta = Prompt.lineReader(Message.SIM_OU_NAO);
+                                fazerMaisPedidos = resposta.equalsIgnoreCase("S");
 
                             } else {
                                 Prompt.print(Message.QNTD_INVALIDA);
@@ -146,6 +169,12 @@ public class FoodOrderMenu extends Menu {
                             Prompt.print(Message.PRODUTO_NAO_ENCONTRADO);
                             FoodOrderView.getInstance().show();
                         }
+                        }
+
+                        Prompt.print("Preço total dos pedidos: " + totalOrderPrice);
+                        Prompt.blankLine();
+
+                    FoodOrderView.getInstance().show();
 
 
                     } else{
@@ -157,13 +186,6 @@ public class FoodOrderMenu extends Menu {
                     Prompt.print(Message.CLIENTE_NAO_ENCONTRADO);
                     FoodOrderView.getInstance().show();
                 }
-                //FALTA FAZER
-                /*
-                 * Listar cardapio enumerado para que o usuario escolha uma das opções
-                 * Ler a opção do usuario e salvar em uma variavel
-                 * Fazer baixa no estoque do item que foi vendido usando o controller do estoque
-                 * Fazer soma dos preços dos itens e mostrar no final o valor total
-                 */
             }
         });
 

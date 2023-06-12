@@ -21,6 +21,7 @@ public interface Message {
     final static String VOLTAR = "VOLTAR";
     final static String SIM = "SIM";
     final static String FINALIZAR_PROGRAMA = "FINALIZAR PROGRAMA";
+    final static String SIM_OU_NAO = "S/N?";
 
     //LOGIN
     final static String TELA_LOGIN = "               TELA DE LOGIN";
@@ -149,6 +150,7 @@ public interface Message {
     //PEDIDO
     final static String MENU_PEDIDO = "MENU PEDIDO";
     final static String MSG_CADASTRO_PEDIDO = "CADASTRO DE PEDIDOS";
+    final static String DESEJA_FAZER_MAIS_PEDIDOS = "DESEJA FAZER MAIS PEDIDOS?";
     final static String LISTA_DE_PEDIDOS = "LISTA DE PEDIDOS";
     final static String NAO_HA_PEDIDOS = "NÃO EXISTEM PEDIDOS CADASTRADOS";
     final static String UP_PEDIDO = "ALTERAR PEDIDO";
