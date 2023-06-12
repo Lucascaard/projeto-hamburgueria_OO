@@ -39,6 +39,14 @@ public class FoodOrder {
 		this.price = preco;
     }
 
+	//construtor para pedido sem cliente
+	public FoodOrder(Worker worker, Cardapio product, Long quantidade, double preco) {
+        this.worker = worker;
+		this.produto = product;
+        this.qnty = quantidade;
+		this.price = preco;
+    }
+
     public Long getId() {
 		return id;
 	}

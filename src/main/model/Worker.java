@@ -60,7 +60,7 @@ public class Worker extends Pessoa {
 		}
 
 		public String toStringOrder(){
-			return 	"Funcionário:" + getName() + "\n" +
+			return 	"\nFuncionário:" + getName() + "\n" +
 					"ID: " + getId() + "\n";
 		}
 	}	
