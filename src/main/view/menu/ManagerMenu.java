@@ -26,9 +26,11 @@ public class ManagerMenu extends Menu {
 					Prompt.print(Message.NAO_HA_GERENTES); 
 				} else {
 					for (Manager customer : manager) {
+                        Prompt.separator();
 						Prompt.print(customer.toString());
 					}
 				}
+                Prompt.separator();
 				Prompt.blankLine();
 				Prompt.pressEnter();
 				ManagerView.getInstance().show();

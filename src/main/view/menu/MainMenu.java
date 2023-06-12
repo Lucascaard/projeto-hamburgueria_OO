@@ -33,7 +33,7 @@ public class MainMenu extends Menu {
 
         adicionar(4, Message.MENU_GERENTE, new Command(){
             public void exe(){
-                System.out.println("Aqui vai o menu de Gerente");
+               ManagerView.getInstance().show();
             }
         });
 
