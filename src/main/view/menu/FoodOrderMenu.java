@@ -5,7 +5,6 @@ import java.util.List;
 import main.util.*;
 import main.view.*;
 import main.controller.*;
-import main.daos.*;
 import main.model.*;
 
 
@@ -15,7 +14,6 @@ public class FoodOrderMenu extends Menu {
     private FoodOrderController control = FoodOrderController.getInstance();
     private ClientController clientControl = ClientController.getInstance();
     private WorkerController workerControl = WorkerController.getInstance();
-    private CardapioController cardapioControl = CardapioController.getInstance();
     private StockController stockControl = StockController.getInstance();
 
     public FoodOrderMenu() {
